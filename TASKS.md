@@ -76,14 +76,14 @@
 
 ### 3. Data Preparation
 
-- [ ] Rancang struktur devices.json (name, watt, icon, category, [id]).
-- [ ] Buat minimal 20-25 data perangkat elektronik umum di Indonesia.
-- [ ] Tambahkan field id unik untuk setiap perangkat (optional).
-- [ ] Kumpulkan dan simpan ikon perangkat (SVG) di src/assets/icons/.
-- [ ] Pastikan penamaan file ikon konsisten dengan field icon di devices.json.
-- [ ] Validasi data perangkat: field lengkap, tidak duplikat, format JSON benar.
-- [ ] Dokumentasikan proses validasi data.
-- [ ] Pastikan data devices.json bisa di-load dan digunakan di aplikasi.
+- [x] Rancang struktur devices.json (name, watt, icon, category, [id]).
+- [x] Buat minimal 20-25 data perangkat elektronik umum di Indonesia.
+- [x] Tambahkan field id unik untuk setiap perangkat (optional).
+- [x] Kumpulkan dan simpan ikon perangkat (SVG) di src/assets/icons/.
+- [x] Pastikan penamaan file ikon konsisten dengan field icon di devices.json.
+- [x] Validasi data perangkat: field lengkap, tidak duplikat, format JSON benar.
+- [x] Dokumentasikan proses validasi data.
+- [x] Pastikan data devices.json bisa di-load dan digunakan di aplikasi.
 
 ### 4. UI/UX Design
 

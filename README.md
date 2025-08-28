@@ -64,6 +64,13 @@ Wattson memanfaatkan IBM Granite untuk:
 3. Lihat hasil kalkulasi dan visualisasi.
 4. Ikuti rekomendasi hemat energi dari AI.
 
+## Data Validation Process
+
+- Struktur data perangkat di [`src/data/devices.json`](src/data/devices.json) divalidasi agar setiap perangkat memiliki field: `id`, `name`, `watt`, `icon`, dan `category`.
+- Penamaan file ikon pada field `icon` sudah dicek konsisten dengan file SVG di [`src/assets/icons/`](src/assets/icons/).
+- Data dicek agar tidak ada duplikat `id` dan format JSON valid (menggunakan VSCode/online validator).
+- Data diuji dengan proses load di aplikasi (lihat kode di [`src/js/main.js`](src/js/main.js)).
+
 ---
 
 > Untuk detail teknis dan blueprint, lihat [WATTSON.md](./WATTSON.md)
