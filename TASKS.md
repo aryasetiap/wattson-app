@@ -93,9 +93,9 @@
 
 ### 5. Core Logic Development
 
-- [ ] Implementasi kalkulasi konsumsi listrik (calculator.js).
-- [ ] Buat fungsi estimasi biaya (Rp) dan kWh.
-- [ ] Unit test untuk fungsi kalkulasi.
+- [x] Implementasi kalkulasi konsumsi listrik (calculator.js).
+- [x] Buat fungsi estimasi biaya (Rp) dan kWh.
+- [x] Unit test untuk fungsi kalkulasi.
 
 ### 6. UI Components Implementation
 
