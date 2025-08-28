@@ -1,4 +1,8 @@
-import { renderPieChart, renderDeviceGallery } from "./ui.js";
+import {
+  renderPieChart,
+  renderDeviceGallery,
+  renderSelectedDeviceCards,
+} from "./ui.js";
 import { calculateKwh, calculateCost } from "./calculator.js";
 
 // Load data perangkat dari devices.json
@@ -17,11 +21,18 @@ function showModal(show) {
     .classList.toggle("hidden", !show);
 }
 
+function handleDeviceRemove(device) {
+  selectedDevices = selectedDevices.filter((d) => d.id !== device.id);
+  updateChart();
+  renderSelectedDeviceCards(selectedDevices, handleDeviceRemove);
+}
+
 function handleDeviceSelect(device) {
   // Tambahkan perangkat ke daftar terpilih (tanpa duplikat)
   if (!selectedDevices.some((d) => d.id === device.id)) {
     selectedDevices.push(device);
     updateChart();
+    renderSelectedDeviceCards(selectedDevices, handleDeviceRemove);
   }
   showModal(false);
 }
@@ -36,6 +47,7 @@ function updateChart() {
   });
   const ctx = document.getElementById("pieChart").getContext("2d");
   chartInstance = renderPieChart(ctx, data, labels, chartInstance);
+  renderSelectedDeviceCards(selectedDevices, handleDeviceRemove);
 }
 
 // Inisialisasi gallery dan event modal
@@ -46,6 +58,6 @@ loadDevices().then((devices) => {
   };
   document.getElementById("closeGalleryBtn").onclick = () => showModal(false);
 
-  // Default: tampilkan chart kosong
+  // Default: tampilkan chart kosong dan cards kosong
   updateChart();
 });

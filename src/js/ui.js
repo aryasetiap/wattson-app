@@ -49,3 +49,25 @@ export function renderDeviceGallery(devices, onSelect) {
     gallery.appendChild(card);
   });
 }
+
+// Render device cards yang sudah dipilih
+export function renderSelectedDeviceCards(devices, onRemove) {
+  const container = document.getElementById("selectedDevices");
+  container.innerHTML = "";
+  devices.forEach((device) => {
+    const card = document.createElement("div");
+    card.className =
+      "card flex flex-row items-center gap-3 border border-gray-200 shadow hover:shadow-lg transition relative";
+    card.innerHTML = `
+      <img src="${device.icon}" alt="${device.name}" class="w-10 h-10 object-contain" />
+      <div class="flex flex-col">
+        <span class="font-semibold text-gray-700 text-sm">${device.name}</span>
+        <span class="text-xs text-gray-400">${device.category}</span>
+        <span class="text-xs text-green-600">${device.watt}W</span>
+      </div>
+      <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 text-lg font-bold" title="Hapus">&times;</button>
+    `;
+    card.querySelector("button").onclick = () => onRemove(device);
+    container.appendChild(card);
+  });
+}
