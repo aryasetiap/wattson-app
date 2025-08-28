@@ -1,0 +1,177 @@
+[
+    {
+        "id": "device-001",
+        "name": "Kulkas",
+        "watt": 100,
+        "icon": "src/assets/icons/kulkas.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-002",
+        "name": "AC",
+        "watt": 800,
+        "icon": "src/assets/icons/ac.svg",
+        "category": "Pendingin"
+    },
+    {
+        "id": "device-003",
+        "name": "Lampu LED",
+        "watt": 10,
+        "icon": "src/assets/icons/lampu-led.svg",
+        "category": "Penerangan"
+    },
+    {
+        "id": "device-004",
+        "name": "TV",
+        "watt": 60,
+        "icon": "src/assets/icons/tv.svg",
+        "category": "Hiburan"
+    },
+    {
+        "id": "device-005",
+        "name": "Mesin Cuci",
+        "watt": 350,
+        "icon": "src/assets/icons/mesin-cuci.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-006",
+        "name": "Rice Cooker",
+        "watt": 300,
+        "icon": "src/assets/icons/rice-cooker.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-007",
+        "name": "Setrika",
+        "watt": 350,
+        "icon": "src/assets/icons/setrika.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-008",
+        "name": "Charger HP",
+        "watt": 5,
+        "icon": "src/assets/icons/charger-hp.svg",
+        "category": "Gadget"
+    },
+    {
+        "id": "device-009",
+        "name": "Kipas Angin",
+        "watt": 45,
+        "icon": "src/assets/icons/kipas-angin.svg",
+        "category": "Pendingin"
+    },
+    {
+        "id": "device-010",
+        "name": "Dispenser",
+        "watt": 100,
+        "icon": "src/assets/icons/dispenser.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-011",
+        "name": "Microwave",
+        "watt": 700,
+        "icon": "src/assets/icons/microwave.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-012",
+        "name": "Blender",
+        "watt": 250,
+        "icon": "src/assets/icons/blender.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-013",
+        "name": "Komputer",
+        "watt": 150,
+        "icon": "src/assets/icons/komputer.svg",
+        "category": "Gadget"
+    },
+    {
+        "id": "device-014",
+        "name": "Laptop",
+        "watt": 65,
+        "icon": "src/assets/icons/laptop.svg",
+        "category": "Gadget"
+    },
+    {
+        "id": "device-015",
+        "name": "Speaker",
+        "watt": 30,
+        "icon": "src/assets/icons/speaker.svg",
+        "category": "Hiburan"
+    },
+    {
+        "id": "device-016",
+        "name": "Pompa Air",
+        "watt": 250,
+        "icon": "src/assets/icons/pompa-air.svg",
+        "category": "Utilitas"
+    },
+    {
+        "id": "device-017",
+        "name": "Hair Dryer",
+        "watt": 400,
+        "icon": "src/assets/icons/hair-dryer.svg",
+        "category": "Personal Care"
+    },
+    {
+        "id": "device-018",
+        "name": "Oven",
+        "watt": 800,
+        "icon": "src/assets/icons/oven.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-019",
+        "name": "CCTV",
+        "watt": 15,
+        "icon": "src/assets/icons/cctv.svg",
+        "category": "Keamanan"
+    },
+    {
+        "id": "device-020",
+        "name": "Router WiFi",
+        "watt": 10,
+        "icon": "src/assets/icons/router.svg",
+        "category": "Gadget"
+    },
+    {
+        "id": "device-021",
+        "name": "Printer",
+        "watt": 50,
+        "icon": "src/assets/icons/printer.svg",
+        "category": "Gadget"
+    },
+    {
+        "id": "device-022",
+        "name": "PlayStation",
+        "watt": 90,
+        "icon": "src/assets/icons/playstation.svg",
+        "category": "Hiburan"
+    },
+    {
+        "id": "device-023",
+        "name": "Magic Com",
+        "watt": 300,
+        "icon": "src/assets/icons/magic-com.svg",
+        "category": "Dapur"
+    },
+    {
+        "id": "device-024",
+        "name": "Vacuum Cleaner",
+        "watt": 400,
+        "icon": "src/assets/icons/vacuum-cleaner.svg",
+        "category": "Utilitas"
+    },
+    {
+        "id": "device-025",
+        "name": "Modem",
+        "watt": 8,
+        "icon": "src/assets/icons/modem.svg",
+        "category": "Gadget"
+    }
+]
