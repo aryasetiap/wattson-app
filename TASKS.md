@@ -87,9 +87,9 @@
 
 ### 4. UI/UX Design
 
-- [ ] Buat wireframe di Figma/Excalidraw.
-- [ ] Rancang layout SPA (mobile-first).
-- [ ] Tentukan warna, font, dan style Tailwind.
+- [x] Buat wireframe di Figma/Excalidraw.
+- [x] Rancang layout SPA (mobile-first).
+- [x] Tentukan warna, font, dan style Tailwind.
 
 ### 5. Core Logic Development
 

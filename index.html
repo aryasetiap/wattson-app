@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/src/css/style.css" rel="stylesheet" />
+    <title>Wattson App</title>
   </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">
-      Hello world! This is Wattson App
-    </h1>
-    <div class="max-w-md mx-auto mt-8">
-      <canvas id="pieChart"></canvas>
-    </div>
+  <body class="bg-gray-50 font-sans text-gray-900 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header
+      class="bg-blue-600 text-white shadow-md py-4 px-6 flex items-center justify-between"
+    >
+      <h1 class="text-2xl md:text-3xl font-bold tracking-tight">
+        ⚡ Wattson App
+      </h1>
+      <span class="hidden md:inline text-base font-medium"
+        >Aksi Iklim Dimulai dari Stop Kontak</span
+      >
+    </header>
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col items-center justify-start px-4 py-6">
+      <section class="w-full max-w-lg bg-white rounded-xl shadow-lg p-6 mb-6">
+        <h2 class="text-xl font-semibold mb-2 text-blue-700">
+          Kalkulator Energi Rumah Tangga
+        </h2>
+        <p class="mb-4 text-gray-600">
+          Pilih perangkat, atur durasi pemakaian, dan lihat konsumsi listrik
+          serta rekomendasi hemat energi.
+        </p>
+        <div class="flex flex-col items-center">
+          <canvas id="pieChart" class="mb-6 w-full max-w-xs h-64"></canvas>
+          <!-- Device gallery & input akan ditambahkan di task berikutnya -->
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-500 text-center py-4 text-sm">
+      &copy; 2025 Wattson App. Powered by IBM Granite & Tailwind CSS.
+    </footer>
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>

@@ -71,6 +71,13 @@ Wattson memanfaatkan IBM Granite untuk:
 - Data dicek agar tidak ada duplikat `id` dan format JSON valid (menggunakan VSCode/online validator).
 - Data diuji dengan proses load di aplikasi (lihat kode di [`src/js/main.js`](src/js/main.js)).
 
+## UI/UX Design
+
+- Layout SPA mobile-first: header, main, footer.
+- Warna utama: biru (#2563eb), kuning (#fbbf24), hijau (#34d399), abu-abu (#f3f4f6).
+- Font: Inter, Segoe UI, Arial, sans-serif.
+- Style: rounded-xl, shadow-lg, spacing modern, transisi smooth.
+
 ---
 
 > Untuk detail teknis dan blueprint, lihat [WATTSON.md](./WATTSON.md)
