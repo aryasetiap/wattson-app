@@ -3,6 +3,7 @@ import {
   renderDeviceGallery,
   renderSelectedDeviceCards,
   renderSummary,
+  renderContributionTable,
 } from "./ui.js";
 import { calculateKwh, calculateCost } from "./calculator.js";
 
@@ -74,6 +75,7 @@ function updateChart() {
     handleDurationChange
   );
   renderSummary(totalKwh, totalCost);
+  renderContributionTable(selectedDevices, costArr);
 }
 
 // Inisialisasi gallery dan event modal

@@ -106,9 +106,9 @@
 
 ### 7. Visualization
 
-- [ ] Integrasi Chart.js Pie Chart.
-- [ ] Visualisasi kontribusi biaya tiap perangkat.
-- [ ] Update chart secara dinamis.
+- [x] Integrasi Chart.js Pie Chart.
+- [x] Visualisasi kontribusi biaya tiap perangkat.
+- [x] Update chart secara dinamis.
 
 ### 8. Recommendations Engine
 

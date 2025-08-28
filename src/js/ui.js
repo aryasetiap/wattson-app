@@ -93,3 +93,21 @@ export function renderSummary(totalKwh, totalCost) {
     "totalCost"
   ).textContent = `Rp ${totalCost.toLocaleString("id-ID")}/hari`;
 }
+
+export function renderContributionTable(devices, costArr) {
+  const totalCost = costArr.reduce((a, b) => a + b, 0);
+  const tbody = document.getElementById("contributionBody");
+  tbody.innerHTML = "";
+  devices.forEach((device, i) => {
+    const percent = totalCost > 0 ? (costArr[i] / totalCost) * 100 : 0;
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td class="py-1">${device.name}</td>
+      <td class="py-1 text-right text-yellow-700">Rp ${costArr[
+        i
+      ].toLocaleString("id-ID")}</td>
+      <td class="py-1 text-right text-gray-500">${percent.toFixed(1)}%</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
