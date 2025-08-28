@@ -4,6 +4,8 @@ import {
   renderSelectedDeviceCards,
   renderSummary,
   renderContributionTable,
+  renderRecommendations,
+  renderContextualTips, // Tambahkan import
 } from "./ui.js";
 import { calculateKwh, calculateCost } from "./calculator.js";
 
@@ -76,6 +78,8 @@ function updateChart() {
   );
   renderSummary(totalKwh, totalCost);
   renderContributionTable(selectedDevices, costArr);
+  renderRecommendations(selectedDevices, costArr);
+  renderContextualTips(selectedDevices, costArr); // Tambahkan ini
 }
 
 // Inisialisasi gallery dan event modal

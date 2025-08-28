@@ -112,9 +112,9 @@
 
 ### 8. Recommendations Engine
 
-- [ ] Analisis perangkat boros otomatis.
-- [ ] Generate tips hemat energi kontekstual.
-- [ ] Tampilkan rekomendasi di UI.
+- [x] Analisis perangkat boros otomatis.
+- [x] Generate tips hemat energi kontekstual.
+- [x] Tampilkan rekomendasi di UI.
 
 ### 9. Optimization & AI Integration
 

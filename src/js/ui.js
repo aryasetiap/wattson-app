@@ -111,3 +111,98 @@ export function renderContributionTable(devices, costArr) {
     tbody.appendChild(row);
   });
 }
+
+export function renderRecommendations(devices, costArr) {
+  const list = document.getElementById("recommendationList");
+  list.innerHTML = "";
+
+  if (devices.length === 0) {
+    list.innerHTML =
+      "<li>Tambahkan perangkat untuk mendapatkan rekomendasi.</li>";
+    return;
+  }
+
+  // Cari perangkat dengan biaya terbesar
+  const maxCost = Math.max(...costArr);
+  const borosIdx = costArr.findIndex((c) => c === maxCost);
+  const borosDevice = devices[borosIdx];
+
+  // Rekomendasi utama
+  if (borosDevice) {
+    list.innerHTML += `<li>
+      <b>${
+        borosDevice.name
+      }</b> adalah perangkat paling boros (Rp ${maxCost.toLocaleString(
+      "id-ID"
+    )}/hari).
+      Kurangi durasi penggunaan <b>${
+        borosDevice.name
+      }</b> 1 jam/hari untuk hemat energi.
+    </li>`;
+  }
+
+  // Rekomendasi tambahan
+  costArr.forEach((cost, i) => {
+    if (cost > 0 && cost !== maxCost) {
+      list.innerHTML += `<li>
+        Matikan <b>${
+          devices[i].name
+        }</b> saat tidak digunakan untuk menghemat Rp ${cost.toLocaleString(
+        "id-ID"
+      )}/hari.
+      </li>`;
+    }
+  });
+}
+
+export function renderContextualTips(devices, costArr) {
+  const list = document.getElementById("tipsList");
+  list.innerHTML = "";
+
+  if (devices.length === 0) {
+    list.innerHTML =
+      "<li>Pilih perangkat untuk mendapatkan tips hemat energi.</li>";
+    return;
+  }
+
+  devices.forEach((device, i) => {
+    // Tips spesifik berdasarkan kategori dan watt
+    if (device.category === "Pendingin" && device.watt >= 700) {
+      list.innerHTML += `<li>
+        Atur suhu <b>${device.name}</b> pada 24°C dan matikan saat tidak diperlukan.
+      </li>`;
+    }
+    if (device.category === "Dapur" && device.watt >= 700) {
+      list.innerHTML += `<li>
+        Gunakan <b>${device.name}</b> hanya saat benar-benar diperlukan dan hindari membuka pintu terlalu sering.
+      </li>`;
+    }
+    if (device.name.toLowerCase().includes("lampu")) {
+      list.innerHTML += `<li>
+        Gunakan <b>${device.name}</b> hanya di ruangan yang sedang digunakan dan matikan saat siang hari.
+      </li>`;
+    }
+    if (device.category === "Gadget" && device.watt < 20) {
+      list.innerHTML += `<li>
+        Cabut <b>${device.name}</b> dari stop kontak setelah selesai digunakan untuk menghindari standby power.
+      </li>`;
+    }
+    if (device.category === "Utilitas" && device.watt > 200) {
+      list.innerHTML += `<li>
+        Gunakan <b>${device.name}</b> pada jam hemat listrik (di luar jam 17.00-22.00).
+      </li>`;
+    }
+    // Tips umum jika biaya perangkat > 5000/hari
+    if (costArr[i] > 5000) {
+      list.innerHTML += `<li>
+        Kurangi durasi penggunaan <b>${device.name}</b> untuk menghemat biaya listrik.
+      </li>`;
+    }
+  });
+
+  // Jika tidak ada tips spesifik
+  if (list.innerHTML.trim() === "") {
+    list.innerHTML =
+      "<li>Penggunaan perangkat sudah efisien. Pertahankan kebiasaan baik!</li>";
+  }
+}
