@@ -1,144 +1,162 @@
 # 🟢 Blueprint Proyek: **Wattson** ⚡️
 
-> **Panduan teknis & strategis Capstone Project "Wattson"**  
-> _Menjamin pengembangan terarah, memenuhi kriteria, dan selesai tepat waktu._ 🚀
+> **Capstone Project: Code Generations and Optimization with IBM Granite Student Developer Initiative**  
+> _Dokumen ini berisi blueprint teknis, strategi, dan penjelasan lengkap untuk pengembangan Wattson App agar memenuhi seluruh grading criteria dan menjadi Top 20 Project._
 
 ---
 
-## 1️⃣ Ringkasan Proyek
+## 1️⃣ Project Overview
 
-**Nama Aplikasi:**  
-**Wattson** (gabungan "Watt" + "Son/San" = "Teman Ahli Energimu")  
-_Singkat, cerdas, mudah diingat._ 💡
+### Nama Aplikasi
 
-**Narasi Utama:**
+**Wattson**  
+_Gabungan "Watt" + "Son/San" = "Teman Ahli Energimu"._
 
-> _"Aksi Iklim Dimulai dari Stop Kontak di Rumah Anda."_ 🌱
+### Narasi Utama
 
-**Masalah:**  
+> _"Aksi Iklim Dimulai dari Stop Kontak di Rumah Anda."_
+
+### Latar Belakang & Permasalahan
+
 Masyarakat, khususnya di kota seperti Pekanbaru, menghadapi kenaikan biaya hidup (termasuk listrik).  
-Kesulitan memahami konsumsi listrik harian dalam bentuk nominal (Rp) membuat upaya penghematan kurang efektif. 😕
+Kesulitan memahami konsumsi listrik harian dalam bentuk nominal (Rp) membuat upaya penghematan kurang efektif.
 
-**Solusi:**  
-Wattson adalah **single-page application (SPA)** interaktif sebagai asisten energi personal. 🤖
+### Tujuan Proyek
 
-- Hitung estimasi biaya listrik bulanan secara visual & real-time 📊
-- Identifikasi perangkat paling boros 🔍
-- Dapatkan rekomendasi penghematan praktis & personal 💬
+- Membantu masyarakat memahami konsumsi listrik rumah tangga secara praktis dan visual.
+- Memberikan rekomendasi hemat energi berbasis data aktual penggunaan perangkat.
+- Meningkatkan kesadaran dan aksi nyata penghematan energi.
 
-**Target Output:**  
-_Simple Application (sesuai brief HACKTIV8)_ ✅
+### Pendekatan & User Flow
 
----
-
-## 2️⃣ Fitur Utama
-
-| Fitur                                 | Deskripsi                                                                                       |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Input Perangkat Interaktif**        | Pilih perangkat dari galeri visual (ikon), muncul sebagai "kartu" dinamis, durasi via slider 🖱️ |
-| **Kalkulasi & Visualisasi Real-time** | Mesin kalkulasi cerdas (total biaya & kWh instan), dasbor visual (Pie Chart interaktif) 📈      |
-| **Rekomendasi Cerdas & Kontekstual**  | Analisis hasil, tips penghematan relevan & berdampak otomatis 💡                                |
-| **Desain Responsif & Modern**         | Mobile-first dengan Tailwind CSS, optimal di berbagai ukuran layar 📱                           |
+1. Pengguna memilih perangkat elektronik yang digunakan di rumah.
+2. Input durasi pemakaian harian tiap perangkat.
+3. Aplikasi menghitung konsumsi listrik (kWh & biaya).
+4. Visualisasi kontribusi tiap perangkat (Chart.js).
+5. Rekomendasi hemat energi otomatis (AI/IBM Granite).
+6. Pengguna dapat membandingkan dan mengoptimalkan penggunaan.
 
 ---
 
-## 3️⃣ Alur Kerja Aplikasi (User Flow)
+## 2️⃣ Technologies Used
 
-1. **Inisiasi:**  
-   Pengguna membuka aplikasi, melihat halaman utama dengan satu tombol CTA: **+ Tambah Perangkat** ➕
+### Teknologi Utama
 
-2. **Seleksi Perangkat:**  
-   Modal daftar perangkat elektronik (ikon), pilih perangkat yang ingin dihitung 🖼️
+| Teknologi            | Fungsi Utama              | Alasan Pemilihan                                        |
+| -------------------- | ------------------------- | ------------------------------------------------------- |
+| **Vite**             | Build tool & dev server   | Cepat, modern, mendukung modul ES, cocok SPA.           |
+| **Tailwind CSS**     | Styling & layout          | Utility-first, mobile-first, mudah custom, responsif.   |
+| **JavaScript**       | Logic & interaksi         | Bahasa utama web, mudah integrasi dengan tools lain.    |
+| **Chart.js**         | Visualisasi data          | Mudah digunakan, interaktif, cocok untuk pie chart.     |
+| **IBM Granite**      | AI code generation & tips | Membantu generate data, kode, dan rekomendasi otomatis. |
+| **Figma/Excalidraw** | Wireframe & desain UI     | Kolaboratif, mudah digunakan untuk prototyping.         |
+| **Netlify/Vercel**   | Deployment                | Mudah, gratis, mendukung SPA dan CI/CD.                 |
 
-3. **Input Durasi:**  
-   Kartu perangkat muncul, slider interaktif untuk durasi pemakaian (jam/hari) ⏱️
+### Dokumentasi Setup
 
-4. **Kalkulasi & Visualisasi:**
-
-   - Total estimasi biaya bulanan (Rp) 💸
-   - Total konsumsi energi (kWh) ⚡️
-   - Pie Chart kontribusi biaya tiap perangkat 🥧
-
-5. **Rekomendasi Kontekstual:**  
-   Area tips hemat energi relevan, fokus pada perangkat konsumsi tertinggi 📝
+- Semua setup dan integrasi dijelaskan di [README.md](./README.md).
 
 ---
 
-## 4️⃣ Tumpukan Teknologi
+## 3️⃣ Features
 
-- **Bahasa Inti:** HTML5, CSS3, JavaScript (ES6+ Vanilla JS) 🧑‍💻
-- **Styling:** Tailwind CSS (UI responsif & modern) 🎨
-- **Visualisasi Data:** Chart.js (Pie Chart interaktif) 📊
-- **Deployment:** Netlify / Vercel (langsung dari GitHub) 🚀
-- **Alat Bantu:**
-  - AI Assistant: IBM Granite 🤖
-  - Version Control: Git & GitHub 🗂️
-  - UI/UX Design (Opsional): Figma / Excalidraw 🖌️
+### Fitur Utama
+
+| Fitur                        | Penjelasan Sistematis                                     |
+| ---------------------------- | --------------------------------------------------------- |
+| **Device Gallery**           | Pilih perangkat elektronik dari daftar (devices.json).    |
+| **Input Durasi Pemakaian**   | Slider/input untuk jam penggunaan harian tiap perangkat.  |
+| **Kalkulasi Konsumsi**       | Hitung otomatis kWh & biaya (Rp) per perangkat & total.   |
+| **Visualisasi Pie Chart**    | Tampilkan kontribusi biaya tiap perangkat (Chart.js).     |
+| **Rekomendasi Hemat Energi** | AI (IBM Granite) memberi tips hemat sesuai data pengguna. |
+| **Responsive SPA**           | UI modern, mobile-first, interaktif, mudah digunakan.     |
+
+### Cara Kerja Fitur
+
+1. Pengguna memilih perangkat dari gallery.
+2. Input durasi pemakaian harian.
+3. Kalkulasi otomatis konsumsi listrik dan biaya.
+4. Pie chart memperlihatkan perangkat paling boros.
+5. AI memberikan rekomendasi hemat energi yang relevan.
 
 ---
 
-## 5️⃣ Struktur Direktori Proyek
+## 4️⃣ AI Support Explanation (IBM Granite)
 
-```plaintext
-/wattson-app/
-├── index.html           # File utama HTML
-├── assets/
-│   ├── css/
-│   │   └── style.css   # CSS kustom (opsional)
-│   ├── js/
-│   │   ├── main.js     # Logika utama aplikasi
-│   │   ├── calculator.js # Fungsi kalkulasi murni
-│   │   └── ui.js       # Render komponen UI
-│   ├── data/
-│   │   └── devices.json # Dataset perangkat elektronik
-│   └── icons/
-│       ├── ac.svg
-│       ├── tv.svg
-│       └── ...         # Ikon perangkat lainnya
-├── package.json         # (Opsional) Manajemen dependensi
-└── README.md            # Dokumentasi lengkap proyek
+### Cara Penggunaan AI
+
+- **Data Generation**: Menggunakan prompt ke IBM Granite untuk menghasilkan daftar perangkat elektronik Indonesia (devices.json).
+- **Code Generation**: Membantu generate fungsi kalkulasi konsumsi listrik dan biaya.
+- **Smart Tips**: AI menganalisis data input pengguna dan menghasilkan rekomendasi hemat energi otomatis.
+
+### Contoh Prompt & Hasil AI
+
+- **Prompt**:  
+  `"Generate a JSON array of 25 common household electronic devices in Indonesia, each with name, average wattage, and category."`
+- **Hasil**:
+  ```json
+  [
+    { "name": "Kulkas", "watt": 100, "category": "Dapur" },
+    { "name": "AC", "watt": 800, "category": "Pendingin" },
+    ...
+  ]
+  ```
+- **Prompt**:  
+  `"Generate JavaScript function to calculate daily electricity cost based on watt, hours, and tariff."`
+- **Hasil**:
+  ```javascript
+  function calculateCost(watt, hours, tariff) {
+    return ((watt * hours) / 1000) * tariff;
+  }
+  ```
+- **Prompt**:  
+  `"Based on user device usage data, generate 3 personalized energy saving tips."`
+- **Hasil**:
+  - "Kurangi durasi penggunaan AC 1 jam per hari untuk hemat Rp 2400/bulan."
+  - "Matikan charger setelah baterai penuh."
+  - "Gunakan lampu LED untuk efisiensi energi."
+
+### Dampak Nyata AI
+
+- Mempercepat proses pengembangan data dan kode.
+- Memberikan rekomendasi yang relevan dan personal.
+- Meningkatkan kualitas dan efisiensi aplikasi.
+
+---
+
+## 5️⃣ Struktur File & Dokumentasi
+
+- **WATTSON.md**: Blueprint teknis, strategi, grading criteria, AI usage.
+- **README.md**: Overview, fitur utama, teknologi, setup, AI summary, cara pakai.
+- **src/data/devices.json**: Data perangkat elektronik.
+- **src/js/**: Logic kalkulasi, UI, integrasi Chart.js.
+- **src/css/style.css**: Styling Tailwind.
+- **index.html**: Entry point SPA.
+
+---
+
+## 6️⃣ User Flow Diagram
+
+```mermaid
+flowchart TD
+    A[Mulai] --> B[Pilih Perangkat]
+    B --> C[Input Durasi Pemakaian]
+    C --> D[Kalkulasi Konsumsi & Biaya]
+    D --> E[Visualisasi Pie Chart]
+    E --> F[AI Rekomendasi Hemat Energi]
+    F --> G[Selesai]
 ```
 
 ---
 
-## 6️⃣ Deskripsi File Penting
+## 7️⃣ Checklist Grading Criteria
 
-- **index.html:** Struktur dasar aplikasi & kontainer elemen dinamis 🏗️
-- **main.js:** Inisialisasi, event listener, integrasi fungsi lain 🔗
-- **calculator.js:** Pure functions untuk kalkulasi (tanpa manipulasi DOM) 🧮
-- **ui.js:** Render/update UI (kartu perangkat, diagram, modal) 🖼️
-- **devices.json:** Array objek perangkat elektronik (`id`, `nama`, `dayaWatt`, `pathIcon`) 📁
-
----
-
-## 7️⃣ Rencana Pemanfaatan AI (IBM Granite)
-
-| Area                                 | Prompt & Dampak                                                                                                                      |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| **Dataset (devices.json)**           | _"Generate a JSON array of 25 common household electronic devices in Indonesia..."_ <br> ➡️ Hemat waktu riset & standarisasi data 🕒 |
-| **Logika Kalkulasi (calculator.js)** | _"Write a pure JavaScript function named 'calculateMonthlyCost'..."_ <br> ➡️ Fondasi kalkulasi bebas side effects                    |
-| **Konten Rekomendasi**               | _"Write 5 short, practical energy-saving tips in Indonesian..."_ <br> ➡️ Konten berkualitas untuk fitur rekomendasi                  |
+- [x] Project Overview jelas, latar belakang kuat, masalah relevan.
+- [x] Teknologi dijelaskan lengkap, alasan pemilihan sesuai kebutuhan.
+- [x] Fitur utama sistematis, cara kerja logis dan sesuai tujuan.
+- [x] AI digunakan relevan, penjelasan cara dan dampak nyata.
 
 ---
 
-## 8️⃣ Rencana Eksekusi (Timeline 10 Hari) 📅
-
-| Hari | Aktivitas Utama                                                                                            |
-| ---- | ---------------------------------------------------------------------------------------------------------- |
-| 1-2  | Inisialisasi repo, struktur direktori, generate devices.json & calculator.js, sketsa UI/UX, setup Tailwind |
-| 3-6  | Fitur inti: tambah/hapus perangkat, kartu dengan slider, kalkulasi real-time, render Chart.js              |
-| 7-8  | Penyempurnaan styling, transisi, animasi, responsif mobile, pengujian & perbaikan bug                      |
-| 9-10 | Dokumentasi README.md, materi presentasi, deployment ke Netlify/Vercel, pengecekan akhir                   |
-
----
-
-## 9️⃣ Metrik Keberhasilan Proyek 🏆
-
-- **Fungsionalitas:** Semua fitur utama berjalan tanpa bug kritikal 🐞
-- **Pengalaman Pengguna:** UI intuitif, mudah digunakan, memberikan "momen pencerahan" ✨
-- **Kualitas Kode:** Terstruktur, mudah dibaca, best practice (pemisahan logika, UI, data) 📚
-- **Dokumentasi:** README.md & presentasi menjelaskan tujuan, fitur, proses pengembangan (termasuk peran AI) secara komprehensif 📝
-
----
-
-> **Wattson: Teman Ahli Energimu, Solusi Cerdas untuk Hemat Energi di Rumah!** 🌟
+> **Catatan:**  
+> Update dokumen ini secara berkala sesuai progress dan feedback reviewer.

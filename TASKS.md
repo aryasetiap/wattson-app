@@ -58,14 +58,19 @@
 
 ### 1. Project Planning & Blueprint
 
-- [ ] Buat WATTSON.md (narasi, fitur, teknologi, user flow, struktur).
-- [ ] Breakdown task ke dalam TASKS.md.
-- [ ] Tentukan timeline dan milestone.
+- [x] Buat WATTSON.md (berisi narasi, fitur utama, teknologi, alasan pemilihan teknologi, user flow, struktur file, contoh penggunaan AI, checklist grading criteria).
+- [x] Pastikan README.md berisi overview, fitur utama, teknologi, setup, AI summary, dan cara pakai.
+- [x] Sinkronkan isi WATTSON.md dan README.md dengan grading criteria Capstone Brief:
+  - Project Overview: tujuan, latar belakang, masalah, pendekatan, user flow.
+  - Technologies Used: penjelasan teknologi, bahasa, framework, tools, alasan pemilihan.
+  - Features: fitur utama dijabarkan logis dan sistematis, cara kerja fitur jelas.
+  - AI Support Explanation: penjelasan penggunaan IBM Granite, contoh prompt & hasil, dampak nyata AI terhadap pengembangan/hasil aplikasi.
+- [x] Update struktur dan isi dokumen agar mudah dipahami dan konsisten dengan blueprint.
 
 ### 2. Environment Setup
 
-- [ ] Inisialisasi repo GitHub.
-- [ ] Setup Vite + Tailwind CSS.
+- [x] Inisialisasi repo GitHub.
+- [x] Setup Vite + Tailwind CSS.
 - [ ] Integrasi IBM Granite.
 - [ ] Setup Chart.js untuk visualisasi.
 
@@ -174,4 +179,4 @@
 ---
 
 > **Catatan:**  
-> Seluruh task dan milestone di atas wajib diupdate secara berkala untuk memastikan progress dan kualitas project tetap
+> Seluruh task dan milestone di atas wajib diupdate secara berkala untuk memastikan progress dan kualitas project tetap terjaga.
