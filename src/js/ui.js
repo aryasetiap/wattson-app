@@ -51,7 +51,7 @@ export function renderDeviceGallery(devices, onSelect) {
 }
 
 // Render device cards yang sudah dipilih
-export function renderSelectedDeviceCards(devices, onRemove) {
+export function renderSelectedDeviceCards(devices, onRemove, onDurationChange) {
   const container = document.getElementById("selectedDevices");
   container.innerHTML = "";
   devices.forEach((device) => {
@@ -59,15 +59,28 @@ export function renderSelectedDeviceCards(devices, onRemove) {
     card.className =
       "card flex flex-row items-center gap-3 border border-gray-200 shadow hover:shadow-lg transition relative";
     card.innerHTML = `
-      <img src="${device.icon}" alt="${device.name}" class="w-10 h-10 object-contain" />
-      <div class="flex flex-col">
+      <img src="${device.icon}" alt="${
+      device.name
+    }" class="w-10 h-10 object-contain" />
+      <div class="flex flex-col flex-1">
         <span class="font-semibold text-gray-700 text-sm">${device.name}</span>
         <span class="text-xs text-gray-400">${device.category}</span>
         <span class="text-xs text-green-600">${device.watt}W</span>
+        <label class="mt-2 text-xs text-gray-500">Durasi: <span class="font-bold" id="duration-${
+          device.id
+        }">${device.hours ?? 8}</span> jam/hari</label>
+        <input type="range" min="1" max="24" value="${
+          device.hours ?? 8
+        }" class="w-full accent-blue-600" id="slider-${device.id}" />
       </div>
       <button class="absolute top-2 right-2 text-red-400 hover:text-red-600 text-lg font-bold" title="Hapus">&times;</button>
     `;
     card.querySelector("button").onclick = () => onRemove(device);
+    const slider = card.querySelector(`#slider-${device.id}`);
+    slider.oninput = (e) => {
+      card.querySelector(`#duration-${device.id}`).textContent = e.target.value;
+      onDurationChange(device, Number(e.target.value));
+    };
     container.appendChild(card);
   });
 }

@@ -101,7 +101,7 @@
 
 - [x] Device gallery modal (pilih perangkat).
 - [x] Dynamic device cards (tambah/hapus perangkat).
-- [ ] Slider durasi pemakaian.
+- [x] Slider durasi pemakaian.
 - [ ] Real-time update biaya & konsumsi.
 
 ### 7. Visualization
