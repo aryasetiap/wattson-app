@@ -35,6 +35,13 @@ Wattson adalah aplikasi kalkulator jejak energi rumah tangga yang interaktif, me
 4. Buka di browser:  
    `http://localhost:5173`
 
+## Setup Chart.js
+
+1. Install Chart.js:
+   `npm install chart.js`
+2. Import dan gunakan fungsi renderPieChart dari src/js/ui.js.
+3. Tambahkan elemen `<canvas id="pieChart"></canvas>` di index.html.
+
 ## AI Support (IBM Granite)
 
 Wattson memanfaatkan IBM Granite untuk:

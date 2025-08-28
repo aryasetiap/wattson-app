@@ -71,14 +71,19 @@
 
 - [x] Inisialisasi repo GitHub.
 - [x] Setup Vite + Tailwind CSS.
-- [ ] Integrasi IBM Granite.
-- [ ] Setup Chart.js untuk visualisasi.
+- [x] Integrasi IBM Granite.
+- [x] Setup Chart.js untuk visualisasi.
 
 ### 3. Data Preparation
 
-- [ ] Rancang struktur devices.json (nama, daya, ikon, kategori).
-- [ ] Kumpulkan dan simpan ikon perangkat (SVG).
-- [ ] Validasi data perangkat.
+- [ ] Rancang struktur devices.json (name, watt, icon, category, [id]).
+- [ ] Buat minimal 20-25 data perangkat elektronik umum di Indonesia.
+- [ ] Tambahkan field id unik untuk setiap perangkat (optional).
+- [ ] Kumpulkan dan simpan ikon perangkat (SVG) di src/assets/icons/.
+- [ ] Pastikan penamaan file ikon konsisten dengan field icon di devices.json.
+- [ ] Validasi data perangkat: field lengkap, tidak duplikat, format JSON benar.
+- [ ] Dokumentasikan proses validasi data.
+- [ ] Pastikan data devices.json bisa di-load dan digunakan di aplikasi.
 
 ### 4. UI/UX Design
 
