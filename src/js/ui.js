@@ -84,3 +84,12 @@ export function renderSelectedDeviceCards(devices, onRemove, onDurationChange) {
     container.appendChild(card);
   });
 }
+
+export function renderSummary(totalKwh, totalCost) {
+  document.getElementById("totalKwh").textContent = `${totalKwh.toFixed(
+    2
+  )} kWh/hari`;
+  document.getElementById(
+    "totalCost"
+  ).textContent = `Rp ${totalCost.toLocaleString("id-ID")}/hari`;
+}

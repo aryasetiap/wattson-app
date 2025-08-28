@@ -2,6 +2,7 @@ import {
   renderPieChart,
   renderDeviceGallery,
   renderSelectedDeviceCards,
+  renderSummary,
 } from "./ui.js";
 import { calculateKwh, calculateCost } from "./calculator.js";
 
@@ -60,17 +61,19 @@ function handleDurationChange(device, hours) {
 function updateChart() {
   const labels = selectedDevices.map((d) => d.name);
   const tariff = 1500;
-  const data = selectedDevices.map((d) => {
-    const kwh = calculateKwh(d.watt, d.hours ?? 8);
-    return calculateCost(kwh, tariff);
-  });
+  const kwhArr = selectedDevices.map((d) => calculateKwh(d.watt, d.hours ?? 8));
+  const costArr = kwhArr.map((kwh) => calculateCost(kwh, tariff));
+  const totalKwh = kwhArr.reduce((a, b) => a + b, 0);
+  const totalCost = costArr.reduce((a, b) => a + b, 0);
+
   const ctx = document.getElementById("pieChart").getContext("2d");
-  chartInstance = renderPieChart(ctx, data, labels, chartInstance);
+  chartInstance = renderPieChart(ctx, costArr, labels, chartInstance);
   renderSelectedDeviceCards(
     selectedDevices,
     handleDeviceRemove,
     handleDurationChange
   );
+  renderSummary(totalKwh, totalCost);
 }
 
 // Inisialisasi gallery dan event modal

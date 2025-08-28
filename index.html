@@ -35,13 +35,27 @@
           >
             Pilih Perangkat
           </button>
-          <!-- Device cards container -->
           <div
             id="selectedDevices"
             class="w-full mb-4 flex flex-wrap gap-4"
           ></div>
           <canvas id="pieChart" class="mb-6 w-full max-w-xs h-64"></canvas>
-          <!-- Device gallery & input akan ditambahkan di task berikutnya -->
+          <!-- Tambahkan summary konsumsi & biaya -->
+          <div
+            id="summary"
+            class="w-full max-w-xs bg-blue-50 rounded-lg shadow p-4 mb-2 text-center"
+          >
+            <div class="text-sm text-gray-600 mb-1">
+              Total Konsumsi Listrik:
+            </div>
+            <div class="text-xl font-bold text-blue-700" id="totalKwh">
+              0 kWh/hari
+            </div>
+            <div class="text-sm text-gray-600 mt-2 mb-1">Total Biaya:</div>
+            <div class="text-xl font-bold text-yellow-600" id="totalCost">
+              Rp 0/hari
+            </div>
+          </div>
         </div>
       </section>
       <!-- Modal Device Gallery -->
