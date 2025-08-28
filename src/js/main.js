@@ -1,4 +1,4 @@
-import { renderPieChart } from "./ui.js";
+import { renderPieChart, renderDeviceGallery } from "./ui.js";
 import { calculateKwh, calculateCost } from "./calculator.js";
 
 // Load data perangkat dari devices.json
@@ -8,21 +8,44 @@ async function loadDevices() {
   return devices;
 }
 
-// Contoh penggunaan: tampilkan nama perangkat di console
-loadDevices().then((devices) => {
-  console.log(
-    "Daftar perangkat:",
-    devices.map((d) => d.name)
-  );
-  // Contoh: ambil 4 perangkat pertama untuk chart
-  const labels = devices.slice(0, 4).map((d) => d.name);
-  // Asumsi durasi 8 jam/hari, tarif Rp1500/kWh
+let selectedDevices = [];
+let chartInstance = null; // Tambahkan ini
+
+function showModal(show) {
+  document
+    .getElementById("deviceGalleryModal")
+    .classList.toggle("hidden", !show);
+}
+
+function handleDeviceSelect(device) {
+  // Tambahkan perangkat ke daftar terpilih (tanpa duplikat)
+  if (!selectedDevices.some((d) => d.id === device.id)) {
+    selectedDevices.push(device);
+    updateChart();
+  }
+  showModal(false);
+}
+
+function updateChart() {
+  const labels = selectedDevices.map((d) => d.name);
   const hours = 8;
   const tariff = 1500;
-  const data = devices.slice(0, 4).map((d) => {
+  const data = selectedDevices.map((d) => {
     const kwh = calculateKwh(d.watt, hours);
     return calculateCost(kwh, tariff);
   });
   const ctx = document.getElementById("pieChart").getContext("2d");
-  renderPieChart(ctx, data, labels);
+  chartInstance = renderPieChart(ctx, data, labels, chartInstance);
+}
+
+// Inisialisasi gallery dan event modal
+loadDevices().then((devices) => {
+  document.getElementById("openGalleryBtn").onclick = () => {
+    renderDeviceGallery(devices, handleDeviceSelect);
+    showModal(true);
+  };
+  document.getElementById("closeGalleryBtn").onclick = () => showModal(false);
+
+  // Default: tampilkan chart kosong
+  updateChart();
 });

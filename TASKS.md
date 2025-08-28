@@ -99,7 +99,7 @@
 
 ### 6. UI Components Implementation
 
-- [ ] Device gallery modal (pilih perangkat).
+- [x] Device gallery modal (pilih perangkat).
 - [ ] Dynamic device cards (tambah/hapus perangkat).
 - [ ] Slider durasi pemakaian.
 - [ ] Real-time update biaya & konsumsi.

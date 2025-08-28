@@ -29,10 +29,36 @@
           serta rekomendasi hemat energi.
         </p>
         <div class="flex flex-col items-center">
+          <button
+            id="openGalleryBtn"
+            class="mb-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+          >
+            Pilih Perangkat
+          </button>
           <canvas id="pieChart" class="mb-6 w-full max-w-xs h-64"></canvas>
           <!-- Device gallery & input akan ditambahkan di task berikutnya -->
         </div>
       </section>
+      <!-- Modal Device Gallery -->
+      <div
+        id="deviceGalleryModal"
+        class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden"
+      >
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative">
+          <button
+            id="closeGalleryBtn"
+            class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-xl"
+          >
+            &times;
+          </button>
+          <h3 class="text-lg font-bold mb-4 text-blue-700">
+            Pilih Perangkat Elektronik
+          </h3>
+          <div id="deviceGallery" class="grid grid-cols-2 gap-4">
+            <!-- Device cards akan di-render di sini -->
+          </div>
+        </div>
+      </div>
     </main>
     <!-- Footer -->
     <footer class="bg-gray-100 text-gray-500 text-center py-4 text-sm">
