@@ -43,7 +43,7 @@ Di tengah kenaikan biaya hidup, banyak masyarakat kesulitan memahami dampak kons
 | JavaScript     | Logika inti & interaktivitas            |
 | Chart.js       | Visualisasi data interaktif             |
 | IBM Granite    | AI untuk generasi kode & tips cerdas    |
-| Netlify/Vercel | Platform untuk deployment SPA           |
+| Vercel | Platform untuk deployment SPA           |
 
 ---
 
