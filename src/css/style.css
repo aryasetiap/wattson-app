@@ -1,6 +1,10 @@
+/**
+ * File: style.css
+ * Deskripsi: Mengimpor Tailwind CSS dan mengatur font default untuk elemen body.
+ */
+
 @import "tailwindcss";
 
-/* Custom font (optional, jika ingin override Tailwind default) */
 body {
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
 }

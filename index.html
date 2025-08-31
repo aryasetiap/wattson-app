@@ -1,11 +1,17 @@
 <!DOCTYPE html>
+<!--
+  Wattson App - Kalkulator & Tips Hemat Energi Listrik Rumah
+  Refaktor: Hapus komentar tidak informatif, tambahkan docstring berbahasa Indonesia.
+  Docstring: 
+  Halaman utama Wattson App untuk cek konsumsi listrik, biaya, dan tips hemat energi.
+  Fitur: Navigasi sidebar, kalkulator listrik, rekomendasi otomatis, tips kontekstual, dan footer sosial.
+-->
 <html lang="id" class="font-inter">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wattson App</title>
     <link rel="stylesheet" href="src/css/style.css" />
-    <!-- Tambahkan link font Inter dari Google Fonts untuk fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +20,10 @@
     />
   </head>
   <body class="bg-[#ffffff] min-h-screen font-inter">
-    <!-- Header -->
+    <!--
+      Header Navigasi Utama
+      Menampilkan logo dan tombol hamburger untuk membuka sidebar.
+    -->
     <header
       class="flex items-center justify-between px-6 md:px-16 py-4 bg-white shadow-[0_2px_8px_0_rgba(34,197,94,0.07)] fixed top-0 left-0 right-0 z-20"
     >
@@ -31,7 +40,6 @@
         id="hamburgerBtn"
         class="p-2 rounded focus:outline-none flex items-center justify-center"
       >
-        <!-- Custom Hamburger SVG -->
         <svg
           width="28"
           height="28"
@@ -46,7 +54,10 @@
       </button>
     </header>
 
-    <!-- Sidebar Navigation -->
+    <!--
+      Sidebar Navigasi
+      Berisi menu navigasi, sosial media, dan tombol tutup sidebar.
+    -->
     <nav
       id="sidebarNav"
       class="fixed top-0 right-0 h-full w-72 bg-white rounded-tl-[2.5rem] rounded-bl-[2.5rem] shadow-2xl border-l-4 border-[#22c55e] z-30 transform translate-x-full transition-transform duration-300"
@@ -76,7 +87,6 @@
             </svg>
           </button>
         </div>
-        <!-- Sidebar Navigation -->
         <ul class="flex-1 px-8 py-6 space-y-5">
           <li>
             <a
@@ -169,7 +179,6 @@
             </a>
           </li>
         </ul>
-        <!-- Media Sosial Sidebar -->
         <div
           class="px-8 py-6 border-t border-[#e0f7fa] flex gap-4 bg-[#e6f9ee] rounded-b-[2rem]"
         >
@@ -212,14 +221,19 @@
       </div>
     </nav>
 
-    <!-- Main Content -->
+    <!--
+      Main Content
+      Berisi seluruh fitur utama Wattson App: Hero, Kalkulator, Rekomendasi, Tips, Modal, dan Footer.
+    -->
     <main class="pt-24">
-      <!-- Hero Section -->
+      <!--
+        Hero Section
+        Menampilkan judul, ilustrasi, dan tombol ajakan utama.
+      -->
       <section
         id="homeSection"
         class="flex flex-col items-center px-6 pt-2 pb-10 max-w-md mx-auto"
       >
-        <!-- Judul utama -->
         <h1
           class="text-[#22c55e] text-[2rem] font-extrabold mb-2 self-start"
           style="letter-spacing: 0.04em"
@@ -232,15 +246,12 @@
           Siap jadi pahlawan energi dari rumah sendiri?<br />
           Yuk, mulai gaya hidup #SmartHemat bareng Wattson!
         </p>
-
-        <!-- Ilustrasi globe energi hijau -->
         <img
           src="src/assets/ui/main.png"
           alt="Energi Hijau"
           class="w-full max-w-[320px] mx-auto mb-6"
           style="display: block"
         />
-        <!-- Ajakan dan subjudul -->
         <div class="w-full text-center">
           <h2
             class="text-[#22c55e] text-[1.5rem] font-extrabold mb-2"
@@ -252,7 +263,6 @@
             Energi bersih itu keren, dimulai dari rumah lo sendiri.<br />
             Wattson siap jadi bestie lo buat ngatur listrik & dompet!
           </p>
-          <!-- Tombol utama -->
           <button
             id="btnGazz"
             class="bg-[#22c55e] text-white font-extrabold text-[1.25rem] px-8 py-2 rounded-full shadow hover:bg-[#16a34a] transition-colors duration-200 mx-auto mt-2"
@@ -263,12 +273,14 @@
         </div>
       </section>
 
-      <!-- Kenalan Section -->
+      <!--
+        About Section
+        Simulasi chat FAQ tentang Wattson dan tombol coba sekarang.
+      -->
       <section id="aboutSection" class="w-full flex justify-center mt-6">
         <div
           class="bg-[#22c55e] rounded-tl-[2.5rem] rounded-tr-[2.5rem] rounded-br-[2.5rem] w-full max-w-md px-10 py-8 flex flex-col items-center"
         >
-          <!-- Judul dan bot icon -->
           <div class="flex items-start justify-between w-full mb-6">
             <h3
               class="text-white text-[1.7rem] font-extrabold leading-tight"
@@ -282,9 +294,8 @@
               class="w-16 h-16"
             />
           </div>
-          <!-- Simulasi chat FAQ -->
           <div class="w-full flex flex-col gap-2 mb-5">
-            <!-- Chat bubble left -->
+            <!-- Simulasi chat FAQ -->
             <div class="flex items-end justify-start mb-2">
               <div
                 class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
@@ -297,7 +308,6 @@
                 class="ml-2 mb-1 w-5 h-5"
               />
             </div>
-            <!-- Chat bubble right -->
             <div class="flex items-end justify-end mb-2">
               <img
                 src="src/assets/ui/read-chat.svg"
@@ -310,7 +320,6 @@
                 ahhhh, masa lu ga tau si?
               </div>
             </div>
-            <!-- Chat bubble left -->
             <div class="flex items-end justify-start mb-2">
               <div
                 class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
@@ -323,7 +332,6 @@
                 class="ml-2 mb-1 w-5 h-5"
               />
             </div>
-            <!-- Chat bubble right -->
             <div class="flex items-end justify-end mb-2">
               <img
                 src="src/assets/ui/read-chat.svg"
@@ -336,7 +344,6 @@
                 tenang-tenang! Gwe jelasin singkat yaa~
               </div>
             </div>
-            <!-- Chat bubble right -->
             <div class="flex items-end justify-end mb-2">
               <img
                 src="src/assets/ui/read-chat.svg"
@@ -350,7 +357,6 @@
                 terus kasih tips hemat energi.<br />Keren gak tuh?
               </div>
             </div>
-            <!-- Chat bubble left -->
             <div class="flex items-end justify-start mb-2">
               <div
                 class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
@@ -363,7 +369,6 @@
                 class="ml-2 mb-1 w-5 h-5"
               />
             </div>
-            <!-- Chat bubble right -->
             <div class="flex items-end justify-end mb-2">
               <img
                 src="src/assets/ui/read-chat.svg"
@@ -377,7 +382,6 @@
                 wattson hitungin otomatis.<br />ada grafiknya juga!
               </div>
             </div>
-            <!-- Chat bubble left -->
             <div class="flex items-end justify-start mb-2">
               <div
                 class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
@@ -390,7 +394,6 @@
                 class="ml-2 mb-1 w-5 h-5"
               />
             </div>
-            <!-- Chat bubble right -->
             <div class="flex items-end justify-end mb-2">
               <img
                 src="src/assets/ui/read-chat.svg"
@@ -405,7 +408,6 @@
               </div>
             </div>
           </div>
-          <!-- Tombol Coba Sekarang -->
           <button
             id="btnCekSekarang"
             class="bg-white text-[#222] font-semibold text-base px-6 py-2 rounded-full shadow mt-2 mb-1 hover:bg-[#e6f9ee] transition-colors duration-200 w-full max-w-[220px]"
@@ -415,26 +417,25 @@
         </div>
       </section>
 
-      <!-- Cek Listrik Section -->
+      <!--
+        Kalkulator Listrik Section
+        Menampilkan pie chart konsumsi listrik dan tombol pilih perangkat.
+      -->
       <section id="kalkulatorSection" class="w-full flex justify-center mt-8">
         <div class="w-full max-w-md px-6 py-6 flex flex-col items-center">
-          <!-- Judul -->
           <h2
             class="text-[#222] text-xl font-extrabold mb-2 text-center"
             style="letter-spacing: 0.02em"
           >
             Cek listrik rumah lo, biar nggak boros!
           </h2>
-          <!-- Subjudul -->
           <p class="text-gray-700 text-base mb-4 text-center font-medium">
             Pilih perangkat, atur durasi pakai, langsung tau mana yang bikin
             tagihan naik. Dapet tips hemat juga, anti ribet!
           </p>
-          <!-- Pie Chart -->
           <div class="w-full flex justify-center mb-4">
             <canvas id="pieChart" width="220" height="220"></canvas>
           </div>
-          <!-- Tombol -->
           <button
             id="btnPilihBarang"
             class="bg-[#22c55e] text-white font-bold text-base px-7 py-2 rounded-full shadow hover:bg-[#16a34a] transition-colors duration-200"
@@ -445,7 +446,10 @@
         </div>
       </section>
 
-      <!-- Device Selection Section -->
+      <!--
+        Device Selection Section
+        Tempat menampilkan kartu perangkat yang dipilih.
+      -->
       <section class="w-full flex justify-center mt-6">
         <div
           id="deviceCardsContainer"
@@ -453,13 +457,15 @@
         ></div>
       </section>
 
-      <!-- Total Konsumsi Section -->
+      <!--
+        Total Konsumsi Section
+        Menampilkan total konsumsi listrik dan biaya harian.
+      -->
       <section class="w-full flex justify-center mt-6">
         <div class="w-full max-w-md px-4">
           <div
             class="bg-[#f3fdf6] border border-[#e0f7fa] rounded-2xl shadow-lg flex flex-col items-center py-6 px-6 relative overflow-hidden"
           >
-            <!-- Icon listrik aksen -->
             <div class="absolute top-4 left-4 opacity-20">
               <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
                 <path
@@ -496,7 +502,10 @@
         </div>
       </section>
 
-      <!-- Kontribusi Biaya Section -->
+      <!--
+        Kontribusi Biaya Section
+        Tabel kontribusi biaya tiap perangkat.
+      -->
       <section class="w-full flex justify-center mt-6">
         <div class="w-full max-w-md px-4">
           <div
@@ -532,7 +541,10 @@
         </div>
       </section>
 
-      <!-- Rekomendasi Hemat Energi Section -->
+      <!--
+        Rekomendasi Hemat Energi Section
+        Daftar rekomendasi otomatis berdasarkan konsumsi perangkat.
+      -->
       <section class="w-full flex justify-center mt-6">
         <div class="w-full max-w-md px-4">
           <div
@@ -558,7 +570,10 @@
         </div>
       </section>
 
-      <!-- Tips Hemat Energi Kontekstual Section -->
+      <!--
+        Tips Hemat Energi Kontekstual Section
+        Daftar tips hemat energi sesuai perangkat yang dipilih.
+      -->
       <section id="tipsSection" class="w-full flex justify-center mt-6">
         <div class="w-full max-w-md px-4">
           <div
@@ -584,7 +599,10 @@
         </div>
       </section>
 
-      <!-- Modal Gallery Pilih Barang -->
+      <!--
+        Modal Pilih Perangkat
+        Gallery perangkat yang bisa dipilih untuk kalkulasi.
+      -->
       <div
         id="deviceGalleryModal"
         class="fixed inset-0 bg-[#e0f7fa]/70 flex items-center justify-center z-50 hidden"
@@ -598,7 +616,6 @@
               id="closeGalleryBtn"
               class="p-2 rounded-full hover:bg-[#e6f9ee]"
             >
-              <!-- Custom Close SVG -->
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
                 <path
@@ -618,7 +635,10 @@
       </div>
     </main>
 
-    <!-- Footer Section -->
+    <!--
+      Footer Section
+      Menampilkan logo, slogan, navigasi, sosial media, dan kontak.
+    -->
     <footer
       id="footerSection"
       class="bg-[#22c55e] rounded-tl-[2.5rem] rounded-tr-[2.5rem] shadow-lg pt-10 pb-6 px-4 md:px-16 lg:px-32 mt-16 text-white"
@@ -626,7 +646,6 @@
       <div
         class="max-w-full md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-12 items-start"
       >
-        <!-- Logo & Slogan -->
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center gap-3 mb-4">
             <img
@@ -646,7 +665,6 @@
             selamatkan bumi 🌏
           </div>
         </div>
-        <!-- Navigasi -->
         <div class="flex flex-col items-center md:items-start">
           <span
             class="font-extrabold text-lg mb-3 block text-center md:text-left"
@@ -673,7 +691,6 @@
             >
           </nav>
         </div>
-        <!-- Ikuti Kami -->
         <div class="flex flex-col items-center md:items-start">
           <span
             class="font-extrabold text-lg mb-3 block text-center md:text-left"

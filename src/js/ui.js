@@ -1,27 +1,28 @@
+/**
+ * Inisialisasi navigasi sidebar.
+ * Fungsi ini mengatur event listener untuk tombol hamburger dan tombol tutup sidebar.
+ * Sidebar akan terbuka saat tombol hamburger diklik, dan tertutup saat tombol tutup atau area di luar sidebar diklik.
+ */
 export function initSidebarNav() {
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   const sidebarNav = document.getElementById("sidebarNav");
   const closeSidebarBtn = document.getElementById("closeSidebarBtn");
 
   hamburgerBtn.addEventListener("click", () => {
-    sidebarNav.classList.remove("translate-x-full");
-    sidebarNav.classList.add("translate-x-0");
+    sidebarNav.classList.replace("translate-x-full", "translate-x-0");
   });
 
   closeSidebarBtn.addEventListener("click", () => {
-    sidebarNav.classList.remove("translate-x-0");
-    sidebarNav.classList.add("translate-x-full");
+    sidebarNav.classList.replace("translate-x-0", "translate-x-full");
   });
 
-  // Optional: close sidebar when clicking outside
   document.addEventListener("click", (e) => {
-    if (
-      !sidebarNav.contains(e.target) &&
-      !hamburgerBtn.contains(e.target) &&
-      sidebarNav.classList.contains("translate-x-0")
-    ) {
-      sidebarNav.classList.remove("translate-x-0");
-      sidebarNav.classList.add("translate-x-full");
+    const isSidebarOpen = sidebarNav.classList.contains("translate-x-0");
+    const clickedOutside =
+      !sidebarNav.contains(e.target) && !hamburgerBtn.contains(e.target);
+
+    if (isSidebarOpen && clickedOutside) {
+      sidebarNav.classList.replace("translate-x-0", "translate-x-full");
     }
   });
 }

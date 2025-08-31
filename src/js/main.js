@@ -1,3 +1,12 @@
+/**
+ * Wattson App Main JS
+ * Mengelola kalkulasi konsumsi listrik, biaya, dan UI interaktif perangkat.
+ * - Memuat data perangkat dari JSON
+ * - Render kartu perangkat, gallery, dan chart kontribusi biaya
+ * - Kalkulasi kWh dan biaya harian
+ * - Navigasi smooth antar section
+ */
+
 import { initSidebarNav } from "./ui.js";
 import Chart from "chart.js/auto";
 import { calculateKwh, calculateCost } from "./calculator.js";
@@ -16,24 +25,27 @@ let selectedDevices = [
 let devicesData = [];
 let pieChart;
 
-// Load devices.json
+/**
+ * Memuat data perangkat dari file JSON
+ */
 async function loadDevices() {
   const res = await fetch("src/data/devices.json");
   devicesData = await res.json();
 }
 
-// Render device cards
+/**
+ * Render kartu perangkat yang dipilih, slider durasi, dan tombol hapus
+ */
 function renderDeviceCards() {
   const container = document.getElementById("deviceCardsContainer");
   container.innerHTML = "";
-  // Sinkronisasi warna chart dan device card
   const chartColors = [
-    "#22c55e", // hijau
-    "#fde68a", // kuning
-    "#60a5fa", // biru
-    "#f87171", // merah
-    "#a3e635", // hijau muda
-    "#34d399", // toska
+    "#22c55e",
+    "#fde68a",
+    "#60a5fa",
+    "#f87171",
+    "#a3e635",
+    "#34d399",
   ];
   selectedDevices.forEach((sel, idx) => {
     const device = devicesData.find((d) => d.id === sel.id);
@@ -65,7 +77,7 @@ function renderDeviceCards() {
     container.appendChild(card);
   });
 
-  // Slider event
+  // Event slider durasi
   container.querySelectorAll("input[type=range]").forEach((slider) => {
     slider.addEventListener("input", (e) => {
       const idx = +e.target.dataset.idx;
@@ -75,9 +87,9 @@ function renderDeviceCards() {
     });
   });
 
-  // Remove event
+  // Event hapus perangkat
   container.querySelectorAll("button[data-remove]").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
+    btn.addEventListener("click", () => {
       const idx = +btn.dataset.remove;
       selectedDevices.splice(idx, 1);
       renderDeviceCards();
@@ -86,7 +98,9 @@ function renderDeviceCards() {
   });
 }
 
-// Kalkulasi total kWh & biaya
+/**
+ * Kalkulasi total kWh, biaya, update chart, tabel kontribusi, rekomendasi, dan tips
+ */
 function updateCalculations() {
   let totalKwh = 0;
   let totalCost = 0;
@@ -101,7 +115,6 @@ function updateCalculations() {
     deviceCosts.push({ name: device.name, cost, kwh });
   });
 
-  // Update summary
   document.getElementById("totalKwh").textContent = `${totalKwh.toFixed(
     2
   )} kWh/hari`;
@@ -120,12 +133,12 @@ function updateCalculations() {
         {
           data: deviceCosts.map((d) => Math.round(d.cost)),
           backgroundColor: [
-            "#22c55e", // hijau
-            "#fde68a", // kuning
-            "#60a5fa", // biru
-            "#f87171", // merah
-            "#a3e635", // hijau muda
-            "#34d399", // toska
+            "#22c55e",
+            "#fde68a",
+            "#60a5fa",
+            "#f87171",
+            "#a3e635",
+            "#34d399",
           ],
           borderWidth: 0,
         },
@@ -139,7 +152,7 @@ function updateCalculations() {
     },
   });
 
-  // Update kontribusi tabel
+  // Update tabel kontribusi biaya
   const tableBody = document.getElementById("contributionTableBody");
   if (tableBody) {
     tableBody.innerHTML = "";
@@ -189,11 +202,12 @@ function updateCalculations() {
   }
 }
 
-// Render gallery modal
+/**
+ * Render gallery modal untuk memilih perangkat baru
+ */
 function renderDeviceGallery() {
   const galleryList = document.getElementById("deviceGalleryList");
   galleryList.innerHTML = "";
-  // Filter perangkat yang belum dipilih
   const availableDevices = devicesData.filter(
     (d) => !selectedDevices.some((s) => s.id === d.id)
   );
@@ -221,31 +235,39 @@ function renderDeviceGallery() {
   });
 }
 
-// Modal open/close helpers
+/**
+ * Membuka modal gallery perangkat
+ */
 function openDeviceGallery() {
   document.getElementById("deviceGalleryModal").classList.remove("hidden");
   renderDeviceGallery();
 }
+
+/**
+ * Menutup modal gallery perangkat
+ */
 function closeDeviceGallery() {
   document.getElementById("deviceGalleryModal").classList.add("hidden");
 }
 
-// Pilih perangkat (dummy, bisa diganti modal gallery)
-document.getElementById("btnPilihBarang").addEventListener("click", () => {
-  openDeviceGallery();
-});
+// Event buka gallery perangkat
+document
+  .getElementById("btnPilihBarang")
+  .addEventListener("click", openDeviceGallery);
 
-// Event close modal
+// Event tutup modal gallery
 document
   .getElementById("closeGalleryBtn")
   .addEventListener("click", closeDeviceGallery);
 
-// Optional: close modal jika klik di luar modal
+// Tutup modal jika klik di luar area modal
 document.getElementById("deviceGalleryModal").addEventListener("click", (e) => {
   if (e.target === e.currentTarget) closeDeviceGallery();
 });
 
-// Inisialisasi aplikasi
+/**
+ * Inisialisasi aplikasi saat DOM siap
+ */
 document.addEventListener("DOMContentLoaded", async () => {
   initSidebarNav();
   await loadDevices();
@@ -253,12 +275,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateCalculations();
 });
 
+/**
+ * Scroll smooth ke section tertentu
+ * @param {string} id - ID section tujuan
+ */
 function scrollToSection(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: "smooth" });
 }
 
-// Sidebar nav
+// Sidebar navigation
 document.getElementById("navHome").onclick = (e) => {
   e.preventDefault();
   scrollToSection("homeSection");
@@ -280,7 +306,7 @@ document.getElementById("navKontak").onclick = (e) => {
   scrollToSection("footerSection");
 };
 
-// Footer nav
+// Footer navigation
 document.getElementById("footerHome").onclick = (e) => {
   e.preventDefault();
   scrollToSection("homeSection");
@@ -294,7 +320,7 @@ document.getElementById("footerKalkulator").onclick = (e) => {
   scrollToSection("kalkulatorSection");
 };
 
-// Button GAZZZ!
+// Button scroll ke kalkulator
 const btnGazz = document.getElementById("btnGazz");
 if (btnGazz) {
   btnGazz.onclick = (e) => {
@@ -303,7 +329,6 @@ if (btnGazz) {
   };
 }
 
-// Button Coba Sekarang!
 const btnCekSekarang = document.getElementById("btnCekSekarang");
 if (btnCekSekarang) {
   btnCekSekarang.onclick = (e) => {
