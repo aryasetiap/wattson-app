@@ -29,7 +29,7 @@ let pieChart;
  * Memuat data perangkat dari file JSON
  */
 async function loadDevices() {
-  const res = await fetch("src/data/devices.json");
+  const res = await fetch("devices.json"); // path relatif ke public/
   devicesData = await res.json();
 }
 
