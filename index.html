@@ -1,127 +1,724 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="font-inter">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/css/style.css" rel="stylesheet" />
     <title>Wattson App</title>
+    <link rel="stylesheet" href="src/css/style.css" />
+    <!-- Tambahkan link font Inter dari Google Fonts untuk fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="bg-gray-50 font-sans text-gray-900 min-h-screen flex flex-col">
+  <body class="bg-[#ffffff] min-h-screen font-inter">
     <!-- Header -->
     <header
-      class="bg-blue-600 text-white shadow-md py-4 px-6 flex items-center justify-between"
+      class="flex items-center justify-between px-6 py-4 bg-white shadow-[0_2px_8px_0_rgba(34,197,94,0.07)] fixed top-0 left-0 right-0 z-20"
     >
-      <h1 class="text-2xl md:text-3xl font-bold tracking-tight">
-        ⚡ Wattson App
-      </h1>
-      <span class="hidden md:inline text-base font-medium"
-        >Aksi Iklim Dimulai dari Stop Kontak</span
+      <div class="flex items-center gap-3">
+        <img src="src/assets/ui/logo.svg" alt="Wattson Logo" class="w-9 h-9" />
+        <span
+          class="font-extrabold text-xl text-[#22c55e] tracking-wide"
+          style="letter-spacing: 0.03em"
+        >
+          WATTSON APP
+        </span>
+      </div>
+      <button
+        id="hamburgerBtn"
+        class="p-2 rounded focus:outline-none flex items-center justify-center"
       >
+        <!-- Custom Hamburger SVG -->
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect y="6" width="28" height="3.2" rx="1.6" fill="#22c55e" />
+          <rect y="13" width="28" height="3.2" rx="1.6" fill="#22c55e" />
+          <rect y="20" width="28" height="3.2" rx="1.6" fill="#22c55e" />
+        </svg>
+      </button>
     </header>
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center justify-start px-4 py-6">
-      <section class="w-full max-w-lg bg-white rounded-xl shadow-lg p-6 mb-6">
-        <h2 class="text-xl font-semibold mb-2 text-blue-700">
-          Kalkulator Energi Rumah Tangga
-        </h2>
-        <p class="mb-4 text-gray-600">
-          Pilih perangkat, atur durasi pemakaian, dan lihat konsumsi listrik
-          serta rekomendasi hemat energi.
-        </p>
-        <div class="flex flex-col items-center">
+
+    <!-- Sidebar Navigation -->
+    <nav
+      id="sidebarNav"
+      class="fixed top-0 right-0 h-full w-72 bg-white rounded-tl-[2.5rem] rounded-bl-[2.5rem] shadow-2xl border-l-4 border-[#22c55e] z-30 transform translate-x-full transition-transform duration-300"
+    >
+      <div class="flex flex-col h-full">
+        <div
+          class="flex items-center justify-between px-6 py-6 border-b border-[#e0f7fa]"
+        >
+          <div class="flex items-center gap-2">
+            <img src="src/assets/ui/logo.svg" alt="Logo" class="w-7 h-7" />
+            <span class="font-extrabold text-xl text-[#22c55e] tracking-wide"
+              >Navigasi</span
+            >
+          </div>
           <button
-            id="openGalleryBtn"
-            class="mb-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+            id="closeSidebarBtn"
+            class="p-2 rounded-full hover:bg-[#e6f9ee] transition"
           >
-            Pilih Perangkat
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+              <path
+                d="M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5"
+                stroke="#22c55e"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
           </button>
-          <div
-            id="selectedDevices"
-            class="w-full mb-4 flex flex-wrap gap-4"
-          ></div>
-          <canvas id="pieChart" class="mb-6 w-full max-w-xs h-64"></canvas>
-          <!-- Tambahkan summary konsumsi & biaya -->
-          <div
-            id="summary"
-            class="w-full max-w-xs bg-blue-50 rounded-lg shadow p-4 mb-2 text-center"
+        </div>
+        <!-- Sidebar Navigation -->
+        <ul class="flex-1 px-8 py-6 space-y-5">
+          <li>
+            <a
+              href="#home"
+              id="navHome"
+              class="flex items-center gap-3 text-[#22c55e] font-bold text-lg hover:bg-[#e6f9ee] rounded-xl px-3 py-2 transition"
+            >
+              <svg width="20" height="20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M6 10h8M10 6v8"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              id="navAbout"
+              class="flex items-center gap-3 text-[#22c55e] font-bold text-lg hover:bg-[#e6f9ee] rounded-xl px-3 py-2 transition"
+            >
+              <svg width="20" height="20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M6 10h8"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#kalkulator"
+              id="navKalkulator"
+              class="flex items-center gap-3 text-[#22c55e] font-bold text-lg hover:bg-[#e6f9ee] rounded-xl px-3 py-2 transition"
+            >
+              <svg width="20" height="20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M8 8h4v4H8z"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Kalkulator
+            </a>
+          </li>
+          <li>
+            <a
+              href="#tips"
+              id="navTips"
+              class="flex items-center gap-3 text-[#22c55e] font-bold text-lg hover:bg-[#e6f9ee] rounded-xl px-3 py-2 transition"
+            >
+              <svg width="20" height="20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M10 6v8"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Tips
+            </a>
+          </li>
+          <li>
+            <a
+              href="#kontak"
+              id="navKontak"
+              class="flex items-center gap-3 text-[#22c55e] font-bold text-lg hover:bg-[#e6f9ee] rounded-xl px-3 py-2 transition"
+            >
+              <svg width="20" height="20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M6 14l8-8"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Kontak
+            </a>
+          </li>
+        </ul>
+        <!-- Media Sosial Sidebar -->
+        <div
+          class="px-8 py-6 border-t border-[#e0f7fa] flex gap-4 bg-[#e6f9ee] rounded-b-[2rem]"
+        >
+          <a
+            href="https://instagram.com/aryasetia_p"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            ><img src="src/assets/ui/instagram.svg" class="w-7 h-7"
+          /></a>
+          <a
+            href="https://instagram.com/aryasetia_p"
+            target="_blank"
+            rel="noopener"
+            aria-label="Github"
+            ><img src="src/assets/ui/github.svg" class="w-7 h-7"
+          /></a>
+          <a
+            href="https://instagram.com/aryasetia_p"
+            target="_blank"
+            rel="noopener"
+            aria-label="X"
+            ><img src="src/assets/ui/x.svg" class="w-7 h-7"
+          /></a>
+          <a
+            href="https://instagram.com/aryasetia_p"
+            target="_blank"
+            rel="noopener"
+            aria-label="Linkedin"
+            ><img src="src/assets/ui/linkedin.svg" class="w-7 h-7"
+          /></a>
+          <a
+            href="https://instagram.com/aryasetia_p"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+            ><img src="src/assets/ui/facebook.svg" class="w-7 h-7"
+          /></a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-24">
+      <!-- Hero Section -->
+      <section
+        id="homeSection"
+        class="flex flex-col items-center px-6 pt-2 pb-10 max-w-md mx-auto"
+      >
+        <!-- Judul utama -->
+        <h1
+          class="text-[#22c55e] text-[2rem] font-extrabold mb-2 self-start"
+          style="letter-spacing: 0.04em"
+        >
+          Halo, Sonfriends! 👋
+        </h1>
+        <p
+          class="text-[1rem] text-[#222] leading-snug mb-4 font-normal self-start"
+        >
+          Siap jadi pahlawan energi dari rumah sendiri?<br />
+          Yuk, mulai gaya hidup #SmartHemat bareng Wattson!
+        </p>
+
+        <!-- Ilustrasi globe energi hijau -->
+        <img
+          src="src/assets/ui/main.png"
+          alt="Energi Hijau"
+          class="w-full max-w-[320px] mx-auto mb-6"
+          style="display: block"
+        />
+        <!-- Ajakan dan subjudul -->
+        <div class="w-full text-center">
+          <h2
+            class="text-[#22c55e] text-[1.5rem] font-extrabold mb-2"
+            style="letter-spacing: 0.03em"
           >
-            <div class="text-sm text-gray-600 mb-1">
-              Total Konsumsi Listrik:
+            Kenalan dulu sama Wattson!
+          </h2>
+          <p class="text-[1rem] text-[#222] leading-snug mb-4 font-normal">
+            Energi bersih itu keren, dimulai dari rumah lo sendiri.<br />
+            Wattson siap jadi bestie lo buat ngatur listrik & dompet!
+          </p>
+          <!-- Tombol utama -->
+          <button
+            id="btnGazz"
+            class="bg-[#22c55e] text-white font-extrabold text-[1.25rem] px-8 py-2 rounded-full shadow hover:bg-[#16a34a] transition-colors duration-200 mx-auto mt-2"
+            style="letter-spacing: 0.04em; min-width: 160px"
+          >
+            GAZZZ!
+          </button>
+        </div>
+      </section>
+
+      <!-- Kenalan Section -->
+      <section id="aboutSection" class="w-full flex justify-center mt-6">
+        <div
+          class="bg-[#22c55e] rounded-tl-[2.5rem] rounded-tr-[2.5rem] rounded-br-[2.5rem] w-full max-w-md px-10 py-8 flex flex-col items-center"
+        >
+          <!-- Judul dan bot icon -->
+          <div class="flex items-start justify-between w-full mb-6">
+            <h3
+              class="text-white text-[1.7rem] font-extrabold leading-tight"
+              style="letter-spacing: 0.01em"
+            >
+              Son son<br />Wattsonnn!!!!
+            </h3>
+            <img
+              src="src/assets/ui/chat-about.svg"
+              alt="Bot Icon"
+              class="w-16 h-16"
+            />
+          </div>
+          <!-- Simulasi chat FAQ -->
+          <div class="w-full flex flex-col gap-2 mb-5">
+            <!-- Chat bubble left -->
+            <div class="flex items-end justify-start mb-2">
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                wattson tu apa si brooo?!
+              </div>
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="ml-2 mb-1 w-5 h-5"
+              />
             </div>
-            <div class="text-xl font-bold text-blue-700" id="totalKwh">
-              0 kWh/hari
+            <!-- Chat bubble right -->
+            <div class="flex items-end justify-end mb-2">
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="mr-2 mb-1 w-5 h-5"
+              />
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                ahhhh, masa lu ga tau si?
+              </div>
             </div>
-            <div class="text-sm text-gray-600 mt-2 mb-1">Total Biaya:</div>
-            <div class="text-xl font-bold text-yellow-600" id="totalCost">
-              Rp 0/hari
+            <!-- Chat bubble left -->
+            <div class="flex items-end justify-start mb-2">
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                hehehe sumpah blm tau gwe bree! ketinggalan info banget yaak
+              </div>
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="ml-2 mb-1 w-5 h-5"
+              />
+            </div>
+            <!-- Chat bubble right -->
+            <div class="flex items-end justify-end mb-2">
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="mr-2 mb-1 w-5 h-5"
+              />
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                tenang-tenang! Gwe jelasin singkat yaa~
+              </div>
+            </div>
+            <!-- Chat bubble right -->
+            <div class="flex items-end justify-end mb-2">
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="mr-2 mb-1 w-5 h-5"
+              />
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                wattson itu aplikasi buat ngitung konsumsi listrik rumah lo,
+                terus kasih tips hemat energi.<br />Keren gak tuh?
+              </div>
+            </div>
+            <!-- Chat bubble left -->
+            <div class="flex items-end justify-start mb-2">
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                wahhh bisa tau berapa tagihan listrik dari tiap alat gitu?
+              </div>
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="ml-2 mb-1 w-5 h-5"
+              />
+            </div>
+            <!-- Chat bubble right -->
+            <div class="flex items-end justify-end mb-2">
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="mr-2 mb-1 w-5 h-5"
+              />
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                yesss! lu tinggal pilih alatnya, masukin durasi pakainya, trus
+                wattson hitungin otomatis.<br />ada grafiknya juga!
+              </div>
+            </div>
+            <!-- Chat bubble left -->
+            <div class="flex items-end justify-start mb-2">
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                gila sih, baru tau ada yang kayak gini. bisa langsung coba gak?
+              </div>
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="ml-2 mb-1 w-5 h-5"
+              />
+            </div>
+            <!-- Chat bubble right -->
+            <div class="flex items-end justify-end mb-2">
+              <img
+                src="src/assets/ui/read-chat.svg"
+                alt="Centang"
+                class="mr-2 mb-1 w-5 h-5"
+              />
+              <div
+                class="bg-white rounded-xl px-4 py-2 text-[1rem] text-[#222] max-w-[75%] shadow font-medium"
+              >
+                bisa dong! klik aja 'coba sekarang' di bawah, yuk jadi pahlawan
+                energi bareng wattson! ✨⚡️
+              </div>
             </div>
           </div>
-          <div
-            id="contributionTable"
-            class="w-full max-w-xs bg-white rounded-lg shadow p-4 mb-4 text-sm"
+          <!-- Tombol Coba Sekarang -->
+          <button
+            id="btnCekSekarang"
+            class="bg-white text-[#222] font-semibold text-base px-6 py-2 rounded-full shadow mt-2 mb-1 hover:bg-[#e6f9ee] transition-colors duration-200 w-full max-w-[220px]"
           >
-            <div class="font-semibold text-blue-700 mb-2">
-              Kontribusi Biaya Perangkat
-            </div>
-            <table class="w-full">
-              <thead>
-                <tr>
-                  <th class="text-left">Perangkat</th>
-                  <th class="text-right">Biaya (Rp/hari)</th>
-                  <th class="text-right">%</th>
-                </tr>
-              </thead>
-              <tbody id="contributionBody"></tbody>
-            </table>
+            Coba Sekarang!
+          </button>
+        </div>
+      </section>
+
+      <!-- Cek Listrik Section -->
+      <section id="kalkulatorSection" class="w-full flex justify-center mt-8">
+        <div class="w-full max-w-md px-6 py-6 flex flex-col items-center">
+          <!-- Judul -->
+          <h2
+            class="text-[#222] text-xl font-extrabold mb-2 text-center"
+            style="letter-spacing: 0.02em"
+          >
+            Cek listrik rumah lo, biar nggak boros!
+          </h2>
+          <!-- Subjudul -->
+          <p class="text-gray-700 text-base mb-4 text-center font-medium">
+            Pilih perangkat, atur durasi pakai, langsung tau mana yang bikin
+            tagihan naik. Dapet tips hemat juga, anti ribet!
+          </p>
+          <!-- Pie Chart -->
+          <div class="w-full flex justify-center mb-4">
+            <canvas id="pieChart" width="220" height="220"></canvas>
           </div>
-          <div
-            id="recommendationBox"
-            class="w-full max-w-xs bg-green-50 rounded-lg shadow p-4 mb-4 text-sm"
+          <!-- Tombol -->
+          <button
+            id="btnPilihBarang"
+            class="bg-[#22c55e] text-white font-bold text-base px-7 py-2 rounded-full shadow hover:bg-[#16a34a] transition-colors duration-200"
+            style="letter-spacing: 0.04em"
           >
-            <div class="font-semibold text-green-700 mb-2">
-              Rekomendasi Hemat Energi Otomatis
-            </div>
-            <ul
-              id="recommendationList"
-              class="list-disc pl-5 text-green-800"
-            ></ul>
-          </div>
+            Pilih Barangnya
+          </button>
+        </div>
+      </section>
+
+      <!-- Device Selection Section -->
+      <section class="w-full flex justify-center mt-6">
+        <div
+          class="w-full max-w-md px-2 flex flex-col gap-4"
+          id="deviceCardsContainer"
+        ></div>
+      </section>
+
+      <!-- Total Konsumsi Section -->
+      <section class="w-full flex justify-center mt-6">
+        <div class="w-full max-w-md px-4">
           <div
-            id="tipsBox"
-            class="w-full max-w-xs bg-yellow-50 rounded-lg shadow p-4 mb-4 text-sm"
+            class="bg-[#f3fdf6] border border-[#e0f7fa] rounded-2xl shadow-lg flex flex-col items-center py-6 px-6 relative overflow-hidden"
           >
-            <div class="font-semibold text-yellow-700 mb-2">
-              Tips Hemat Energi Kontekstual
+            <!-- Icon listrik aksen -->
+            <div class="absolute top-4 left-4 opacity-20">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M16 3L12 17H17L15 29L25 13H19L22 3H16Z"
+                  fill="#22c55e"
+                />
+              </svg>
             </div>
-            <ul id="tipsList" class="list-disc pl-5 text-yellow-800"></ul>
+            <div class="w-full flex flex-col items-center z-10">
+              <div
+                class="text-[#22c55e] text-lg font-bold mb-1 text-center tracking-wide"
+              >
+                Total Konsumsi Listrik
+              </div>
+              <div
+                id="totalKwh"
+                class="text-[#222] text-2xl font-extrabold mb-2 text-center"
+              >
+                0 kWh/hari
+              </div>
+              <div
+                class="text-[#22c55e] text-base font-bold mb-1 text-center tracking-wide"
+              >
+                Total Biaya
+              </div>
+              <div
+                id="totalBiaya"
+                class="text-[#222] text-xl font-extrabold text-center"
+              >
+                Rp 0/hari
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <!-- Modal Device Gallery -->
+
+      <!-- Kontribusi Biaya Section -->
+      <section class="w-full flex justify-center mt-6">
+        <div class="w-full max-w-md px-4">
+          <div
+            class="bg-[#f3fdf6] border border-[#e0f7fa] rounded-2xl shadow-lg flex flex-col items-center py-6 px-6"
+          >
+            <div class="flex items-center gap-2 mb-3">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="16" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M16 3L12 17H17L15 29L25 13H19L22 3H16Z"
+                  fill="#22c55e"
+                />
+              </svg>
+              <span class="text-[#22c55e] text-lg font-bold"
+                >Kontribusi Biaya Perangkat</span
+              >
+            </div>
+            <table
+              class="w-full text-left text-base rounded-xl overflow-hidden shadow"
+            >
+              <thead>
+                <tr
+                  class="bg-[#e6f9ee] text-[#22c55e] font-bold border-b border-[#22c55e]"
+                >
+                  <th class="py-2 px-3">Perangkat</th>
+                  <th class="py-2 px-3">Biaya (Rp/hari)</th>
+                  <th class="py-2 px-3">%</th>
+                </tr>
+              </thead>
+              <tbody id="contributionTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rekomendasi Hemat Energi Section -->
+      <section class="w-full flex justify-center mt-6">
+        <div class="w-full max-w-md px-4">
+          <div
+            class="bg-[#e0f7fa] border border-[#b2f5ea] rounded-2xl shadow-lg flex flex-col items-start py-6 px-6"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="16" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M16 3L12 17H17L15 29L25 13H19L22 3H16Z"
+                  fill="#22c55e"
+                />
+              </svg>
+              <span class="text-[#22c55e] text-lg font-bold"
+                >Rekomendasi Hemat Energi Otomatis</span
+              >
+            </div>
+            <ul
+              class="list-disc pl-5 text-[#222] text-base font-normal space-y-2"
+              id="recommendationList"
+            ></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tips Hemat Energi Kontekstual Section -->
+      <section id="tipsSection" class="w-full flex justify-center mt-6">
+        <div class="w-full max-w-md px-4">
+          <div
+            class="bg-[#e6f9ee] border border-[#b2f5ea] rounded-2xl shadow-lg flex flex-col items-start py-6 px-6"
+          >
+            <div class="flex items-center gap-2 mb-2">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="16" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M16 3L12 17H17L15 29L25 13H19L22 3H16Z"
+                  fill="#22c55e"
+                />
+              </svg>
+              <span class="text-[#22c55e] text-lg font-bold"
+                >Tips Hemat Energi Kontekstual</span
+              >
+            </div>
+            <ul
+              class="list-disc pl-5 text-[#222] text-base font-normal space-y-2"
+              id="tipsList"
+            ></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal Gallery Pilih Barang -->
       <div
         id="deviceGalleryModal"
-        class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 hidden"
+        class="fixed inset-0 bg-[#e0f7fa]/70 flex items-center justify-center z-50 hidden"
       >
-        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6 relative">
-          <button
-            id="closeGalleryBtn"
-            class="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-xl"
-          >
-            &times;
-          </button>
-          <h3 class="text-lg font-bold mb-4 text-blue-700">
-            Pilih Perangkat Elektronik
-          </h3>
-          <div id="deviceGallery" class="grid grid-cols-2 gap-4">
-            <!-- Device cards akan di-render di sini -->
+        <div
+          class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md max-h-[90vh] overflow-y-auto"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-[#22c55e] font-bold text-lg">Pilih Perangkat</h3>
+            <button
+              id="closeGalleryBtn"
+              class="p-2 rounded-full hover:bg-[#e6f9ee]"
+            >
+              <!-- Custom Close SVG -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.12" />
+                <path
+                  d="M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
           </div>
+          <div
+            id="deviceGalleryList"
+            class="grid grid-cols-3 md:grid-cols-4 gap-4"
+          ></div>
         </div>
       </div>
     </main>
-    <!-- Footer -->
-    <footer class="bg-gray-100 text-gray-500 text-center py-4 text-sm">
-      &copy; 2025 Wattson App. Powered by IBM Granite & Tailwind CSS.
+
+    <!-- Footer Section -->
+    <footer
+      id="footerSection"
+      class="bg-[#22c55e] rounded-tl-[2.5rem] rounded-tr-[2.5rem] shadow-lg pt-10 pb-5 px-6 mt-16 text-white"
+    >
+      <div
+        class="max-w-3xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-8"
+      >
+        <!-- Logo & Slogan -->
+        <div class="flex-1 mb-6 md:mb-0">
+          <div class="flex items-center gap-3 mb-3">
+            <img
+              src="src/assets/ui/logo-footer.svg"
+              alt="Wattson Logo"
+              class="w-10 h-10"
+            />
+            <span class="font-extrabold text-2xl tracking-wide"
+              >WATTSON APP</span
+            >
+          </div>
+          <div class="text-base leading-snug opacity-90">
+            Jadi pahlawan energi dari rumah sendiri ✨<br />
+            Hemat listrik, hemat biaya,<br />
+            selamatkan bumi 🌏
+          </div>
+        </div>
+        <!-- Navigasi -->
+        <div class="flex-1 mb-6 md:mb-0">
+          <span class="font-extrabold text-lg mb-3 block">Navigasi</span>
+          <nav class="flex flex-col gap-2">
+            <a
+              href="#home"
+              id="footerHome"
+              class="text-white text-base hover:underline"
+              >Beranda</a
+            >
+            <a
+              href="#about"
+              id="footerAbout"
+              class="text-white text-base hover:underline"
+              >Tentang Kami</a
+            >
+            <a
+              href="#kalkulator"
+              id="footerKalkulator"
+              class="text-white text-base hover:underline"
+              >Fitur Utama</a
+            >
+          </nav>
+        </div>
+        <!-- Ikuti Kami -->
+        <div class="flex-1">
+          <span class="font-extrabold text-lg mb-3 block">Ikuti Kami</span>
+          <div class="flex gap-3 mb-3">
+            <a
+              href="https://instagram.com/aryasetia_p"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              ><img src="src/assets/ui/instagram.svg" class="w-7 h-7"
+            /></a>
+            <a
+              href="https://instagram.com/aryasetia_p"
+              target="_blank"
+              rel="noopener"
+              aria-label="Github"
+              ><img src="src/assets/ui/github.svg" class="w-7 h-7"
+            /></a>
+            <a
+              href="https://instagram.com/aryasetia_p"
+              target="_blank"
+              rel="noopener"
+              aria-label="Linkedin"
+              ><img src="src/assets/ui/linkedin.svg" class="w-7 h-7"
+            /></a>
+            <a
+              href="https://instagram.com/aryasetia_p"
+              target="_blank"
+              rel="noopener"
+              aria-label="X"
+              ><img src="src/assets/ui/x.svg" class="w-7 h-7"
+            /></a>
+            <a
+              href="https://instagram.com/aryasetia_p"
+              target="_blank"
+              rel="noopener"
+              aria-label="Facebook"
+              ><img src="src/assets/ui/facebook.svg" class="w-7 h-7"
+            /></a>
+          </div>
+          <span class="text-white text-base block mb-1 opacity-90"
+            >support@wattson.com</span
+          >
+        </div>
+      </div>
+      <hr class="border-t border-[#e0f7fa] my-4 opacity-60" />
+      <div class="text-center text-xs text-white opacity-80 pb-1">
+        © 2025 Wattson App | Arya Setia Pratama. All Rights Reserved
+      </div>
     </footer>
-    <script type="module" src="/src/js/main.js"></script>
+
+    <script type="module" src="src/js/main.js"></script>
   </body>
 </html>

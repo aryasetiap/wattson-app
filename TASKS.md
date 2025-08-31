@@ -7,21 +7,22 @@
 
 ## 🚦 Milestone Overview
 
-| Milestone            | Output                            | Target Date | Status         |
-| -------------------- | --------------------------------- | ----------- | -------------- |
-| 1. Project Planning  | Project Blueprint, Task List      | 28/08/2025  | ⬜ Not Started |
-| 2. Environment Setup | Repo, Vite, Tailwind, IBM Granite | 28/08/2025  | ⬜ Not Started |
-| 3. Data Preparation  | devices.json, Icons               | 28/08/2025  | ⬜ Not Started |
-| 4. UI/UX Design      | Wireframe, Figma/Excalidraw       | 28/08/2025  | ⬜ Not Started |
-| 5. Core Logic        | Calculator.js, Data Models        | 28/08/2025  | ⬜ Not Started |
-| 6. UI Components     | Device Gallery, Cards, Slider     | 28/08/2025  | ⬜ Not Started |
-| 7. Visualization     | Chart.js Pie Chart                | 28/08/2025  | ⬜ Not Started |
-| 8. Recommendations   | Tips Engine, Contextual UI        | 29/08/2025  | ⬜ Not Started |
-| 9. Optimization & AI | IBM Granite Integration           | 29/08/2025  | ⬜ Not Started |
-| 10. Testing & QA     | Manual & Automated Tests          | 29/08/2025  | ⬜ Not Started |
-| 11. Documentation    | README, User Guide                | 29/08/2025  | ⬜ Not Started |
-| 12. Deployment       | Netlify/Vercel                    | 29/08/2025  | ⬜ Not Started |
-| 13. Final Review     | Grading Criteria Checklist        | 29/08/2025  | ⬜ Not Started |
+| Milestone                       | Output                                | Target Date | Status         |
+| ------------------------------- | ------------------------------------- | ----------- | -------------- |
+| 1. Project Planning             | Project Blueprint, Task List          | 28/08/2025  | ⬜ Not Started |
+| 2. Environment Setup            | Repo, Vite, Tailwind, IBM Granite     | 28/08/2025  | ⬜ Not Started |
+| 3. Data Preparation             | devices.json, Icons                   | 28/08/2025  | ⬜ Not Started |
+| 4. UI/UX Design                 | Wireframe, Figma/Excalidraw           | 28/08/2025  | ⬜ Not Started |
+| 5. Core Logic                   | Calculator.js, Data Models            | 28/08/2025  | ⬜ Not Started |
+| 6. UI Components                | Device Gallery, Cards, Slider         | 28/08/2025  | ⬜ Not Started |
+| 7. Visualization                | Chart.js Pie Chart                    | 28/08/2025  | ⬜ Not Started |
+| 8. Recommendations              | Tips Engine, Contextual UI            | 29/08/2025  | ⬜ Not Started |
+| 9. Optimization & AI            | IBM Granite Integration               | 29/08/2025  | ⬜ Not Started |
+| 10. Testing & QA                | Manual & Automated Tests              | 29/08/2025  | ⬜ Not Started |
+| 11. Documentation               | README, User Guide                    | 29/08/2025  | ⬜ Not Started |
+| 12. Deployment                  | Netlify/Vercel                        | 29/08/2025  | ⬜ Not Started |
+| 13. Final Review                | Grading Criteria Checklist            | 29/08/2025  | ⬜ Not Started |
+| 14. UI Modernization & Branding | UI/UX yang diperbarui, Branding warna | 29/08/2025  | ⬜ Not Started |
 
 ---
 
@@ -145,6 +146,23 @@
 - [ ] Checklist grading criteria.
 - [ ] Review seluruh milestone.
 - [ ] Submit project dan dokumentasi.
+
+### 14. UI Modernization & Branding
+
+- [x] Ubah warna utama UI ke gradasi hijau-toska sesuai logo Wattson.
+- [x] Tambahkan logo Wattson di header dan footer.
+- [x] Ubah background utama menjadi gradasi hijau-toska yang soft.
+- [x] Ubah warna button utama ke hijau-toska, tambahkan efek hover gradasi.
+- [x] Ubah accent slider ke hijau-toska.
+- [x] Ubah warna card summary, rekomendasi, tips, dan tabel kontribusi ke nuansa hijau-toska.
+- [x] Tambahkan border dan shadow hijau-toska pada card dan section.
+- [x] Ubah warna header tabel kontribusi ke hijau-toska, highlight baris paling boros.
+- [x] Tambahkan border/shadow hijau-toska pada icon perangkat di device gallery dan card.
+- [x] Perbaiki kontras teks pada background hijau/toska/kuning agar tetap terbaca.
+- [x] Gunakan font lebih bold untuk judul dan highlight, tambahkan letter-spacing pada judul utama.
+- [x] Tambahkan shape/pattern tipis pada background agar lebih modern.
+- [ ] Pastikan semua elemen responsif dan konsisten di mobile & desktop.
+- [ ] Update README.md dengan screenshot UI baru dan penjelasan branding warna.
 
 ---
 

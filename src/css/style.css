@@ -1,16 +1,6 @@
 @import "tailwindcss";
 
-/* Custom style untuk tahun 2025 look */
+/* Custom font (optional, jika ingin override Tailwind default) */
 body {
-  font-family: "Inter", "Segoe UI", "Arial", "sans-serif";
-  background-color: #f3f4f6;
-}
-
-h1,
-h2 {
-  letter-spacing: -0.5px;
-}
-
-.card {
-  @apply rounded-xl shadow-lg bg-white p-6 transition-all duration-300;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
 }
