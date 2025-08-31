@@ -7,6 +7,21 @@ Aplikasi web yang membantu Anda memahami & mengelola konsumsi listrik rumah seca
 
 ---
 
+## 🌍 Kaitan dengan SDGs
+
+Wattson mendukung pencapaian **Sustainable Development Goals (SDGs)**, khususnya:
+
+- **SDG 7: Energi Bersih dan Terjangkau**  
+  Mendorong efisiensi dan penghematan energi listrik di rumah tangga.
+- **SDG 12: Konsumsi dan Produksi yang Bertanggung Jawab**  
+  Membantu masyarakat memahami dan mengurangi konsumsi listrik berlebih.
+- **SDG 13: Penanganan Perubahan Iklim**  
+  Mengurangi emisi karbon melalui penghematan energi di tingkat individu.
+
+Dengan edukasi dan rekomendasi hemat energi, Wattson berkontribusi pada gaya hidup berkelanjutan dan masa depan yang lebih hijau.
+
+---
+
 ## 📱 Penting!
 
 **Aplikasi ini adalah mobile web app, dirancang khusus untuk pengalaman terbaik di smartphone Anda!**
@@ -36,14 +51,14 @@ Di tengah kenaikan biaya hidup, banyak masyarakat kesulitan memahami dampak kons
 
 ## 🛠️ Teknologi yang Digunakan
 
-| 🚀 Teknologi   | 🎯 Fungsi Utama                         |
-| -------------- | --------------------------------------- |
-| Vite           | Build tool & dev server (cepat, modern) |
-| Tailwind CSS   | Styling utility-first yang responsif    |
-| JavaScript     | Logika inti & interaktivitas            |
-| Chart.js       | Visualisasi data interaktif             |
-| IBM Granite    | AI untuk generasi kode & tips cerdas    |
-| Vercel | Platform untuk deployment SPA           |
+| 🚀 Teknologi | 🎯 Fungsi Utama                         |
+| ------------ | --------------------------------------- |
+| Vite         | Build tool & dev server (cepat, modern) |
+| Tailwind CSS | Styling utility-first yang responsif    |
+| JavaScript   | Logika inti & interaktivitas            |
+| Chart.js     | Visualisasi data interaktif             |
+| IBM Granite  | AI untuk generasi kode & tips cerdas    |
+| Vercel       | Platform untuk deployment SPA           |
 
 ---
 
