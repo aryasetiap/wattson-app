@@ -29,6 +29,29 @@ Coba Wattson langsung di sini:
 
 ---
 
+## 📸 Screenshots
+
+Berikut tampilan utama Wattson App:
+
+<div align="center">
+
+<table>
+  <tr>
+    <td><img src="src/assets/beranda.png" alt="Beranda" width="220"/></td>
+    <td><img src="src/assets/kalkulator.png" alt="Kalkulator" width="220"/></td>
+    <td><img src="src/assets/hasil.png" alt="Hasil" width="220"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Beranda</b></td>
+    <td align="center"><b>Kalkulator Konsumsi Listrik</b></td>
+    <td align="center"><b>Hasil Analisis & Rekomendasi</b></td>
+  </tr>
+</table>
+
+</div>
+
+---
+
 ## 📱 Penting!
 
 **Aplikasi ini adalah mobile web app, dirancang khusus untuk pengalaman terbaik di smartphone Anda!**
